@@ -1,0 +1,73 @@
+@import '../../node_modules/purecss/build/pure.css';
+
+:root {
+  --headerColor : #111;
+  --mainColor: #f1f1f1;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: sans-serif;
+  background: var(--mainColor);
+}
+
+header{
+  padding: 1em;
+  color:white;
+  background: var(--headerColor);
+
+  h1{
+    float:left;
+    margin: 0;
+    font-size:1.25rem;
+  }
+
+}
+
+menu{
+  display:block;
+  float:right;
+
+  ul{
+    list-style: none;
+
+    li{
+      float:left;
+      margin-left:1em;
+      cursor:pointer;
+      user-select:none;
+      opacity: .7
+    }
+
+    li:hover{
+      opacity: .5;
+    }
+
+    li.active{
+      opacity: 1;
+    }
+  }
+}
+
+.content{
+  padding: 1em;
+}
+
+itemlist{
+  display:block;
+
+  ul{
+    list-style: none;
+  }
+}
