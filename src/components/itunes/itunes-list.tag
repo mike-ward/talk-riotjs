@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr each="{mediaItems.results}">
+      <tr each="{filterResults(mediaItems)}">
         <td><button click="playVideo(media)" class="pure-button"><i class="icon-play"></i></button></td>
         <td><a href="{previewUrl}" target="_blank"><img src="{artworkUrl60}" /></a></td>
         <td>{trackName || collectionName}</td>
@@ -33,5 +33,11 @@
       this.mediaItems = items;
       this.update();
     });
+
+    this.opts.filter.on('changed', () => this.update());  
+    
+    this.filterResults = items => this.opts.filter.value 
+      ? items.results.filter(r => r.artistName.toLowerCase().indexOf(this.opts.filter.value.toLowerCase()) >= 0)
+      : items.results; 
   </script>
 </itunes-list>

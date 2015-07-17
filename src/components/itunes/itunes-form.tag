@@ -27,11 +27,15 @@
       </select>
       
       <label>Filter by</label>
-      <input type="text">
+      <input type="text" value="{ opts.filter.value }" oninput="{ onFilterChange }">
     </span>
   </form>
   
   <script>
     this.onSearch = () => riot.control.trigger(riot.EVT.queryITunesStore, this.artist.value, this.media.value);
+    this.onFilterChange = (e) => {
+      this.opts.filter.value = e.target.value;
+      this.opts.filter.trigger('changed');
+    }
   </script>
 </itunes-form>
