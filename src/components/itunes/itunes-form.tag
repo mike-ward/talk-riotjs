@@ -1,14 +1,14 @@
 <itunes-form>
   <form class="pure-form">
     <label>Search for</label>
-    <input name="artist" type="text" class="pure-input-rounded">
+    <input name="artist" type="text" placeholder="Required" class="pure-input-rounded" required>
     
     <label>Media Type</label>
-    <select name="media">
+    <select name="media" onchange="{onSelectMedia}">
       <option value="all" selected>All</option>
-      <option value="musicVideo" selected>Video</option>
+      <option value="musicVideo">Video</option>
       <option value="movie">Movie</option>
-      <option value="musicTrack">Music</option>
+      <option value="music">Music</option>
       <option value="podcast">Podcast</option>
       <option value="tvShow">TV Show</option>
     </select>
@@ -19,23 +19,30 @@
       
     <span class="pull-right">
       <label>Sort by</label>
-      <select ng-model="sortProp">
+      <select name="sortBy" onchange="{onSortbyChanged}">
         <option value="artistName">Artist</option>
-        <option value="collectionName">Collection Name</option>
-        <option value="wrapperType">Media Item Name</option>
-        <option value="kind" selected>Media Type</option>
+        <option value="trackName">Track</option>
+        <option value="collectionName">Collection</option>
+        <option value="kind">Type</option>
       </select>
       
       <label>Filter by</label>
-      <input type="text" value="{ opts.filter.value }" oninput="{ onFilterChange }">
+      <input type="text" value="{ opts.filterby.value }" oninput="{ onFilterbyChange }">
     </span>
   </form>
   
   <script>
     this.onSearch = () => riot.control.trigger(riot.EVT.queryITunesStore, this.artist.value, this.media.value);
-    this.onFilterChange = (e) => {
-      this.opts.filter.value = e.target.value;
-      this.opts.filter.trigger('changed');
+    this.onSelectMedia = e => this.opts.media.value = e.target.value;
+    
+    this.onFilterbyChange = (e) => {
+      this.opts.filterby.value = e.target.value;
+      this.opts.filterby.trigger('changed');
+    }
+      
+    this.onSortbyChanged = e => {
+      this.opts.sortby.value = e.target.value;
+      this.opts.sortby.trigger('changed');
     }
   </script>
 </itunes-form>

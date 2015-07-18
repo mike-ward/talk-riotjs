@@ -8,10 +8,10 @@ class ITunesStore {
   }
 
   bindEvents() {
-    this.on(riot.EVT.queryITunesStore, (term) => {
+    this.on(riot.EVT.queryITunesStore, (term, media) => {
       jsonp({
         url: 'https://itunes.apple.com/search',
-        data: { term: term },
+        data: { term: term, media: media },
         success: data => this.trigger(riot.EVT.queryITunesStoreSuccess, data),
         error: err => alert(err)
       });

@@ -29,15 +29,18 @@
   <script>
     this.mediaItems = [];
     
-    riot.control.on(riot.EVT.queryITunesStoreSuccess, items => {
-      this.mediaItems = items;
-      this.update();
-    });
-
-    this.opts.filter.on('changed', () => this.update());  
+    this.opts.sortby.on('changed', () => this.update());  
+    this.opts.filterby.on('changed', () => this.update());  
+    riot.control.on(riot.EVT.queryITunesStoreSuccess, items => this.update({mediaItems: items}));
     
-    this.filterResults = items => this.opts.filter.value 
-      ? items.results.filter(r => r.artistName.toLowerCase().indexOf(this.opts.filter.value.toLowerCase()) >= 0)
-      : items.results; 
+    this.filterResults = items => { 
+      let filterOn = f => fb => r => r[f].toLowerCase().indexOf(fb) !== -1;
+      let sortOn = f => (l, r) => l[f] ? l[f].localeCompare(r[f]) : 0; 
+      
+      return items
+        .results
+        .filter(filterOn('artistName')(this.opts.filterby.value.toLowerCase()))
+        .sort(sortOn(this.opts.sortby.value)); 
+    }
   </script>
 </itunes-list>
