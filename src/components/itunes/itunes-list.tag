@@ -1,5 +1,8 @@
+import riot from 'riot'
+import "./itunes-video-player.tag"
+
 <itunes-list>
-  <table show="{mediaItems.resultCount}" class="pure-table pure-table-striped">
+  <table show="{mediaItems.resultCount}" class="pure-table">
     <thead>
       <tr>
         <th></th>
@@ -14,7 +17,7 @@
     </thead>
     <tbody>
       <tr each="{filterResults(mediaItems)}">
-        <td><button click="playVideo(media)" class="pure-button"><i class="icon-play"></i></button></td>
+        <td><button onclick="{playVideo}" class="pure-button">►</i></button></td>
         <td><a href="{previewUrl}" target="_blank"><img src="{artworkUrl60}" /></a></td>
         <td>{trackName || collectionName}</td>
         <td>{kind}</td>
@@ -26,6 +29,8 @@
     </tbody>
   </table>
   
+  <itunes-video-player media="{preview}" />
+
   <script>
     this.mediaItems = [];
     
@@ -41,6 +46,14 @@
         .results
         .filter(filterOn('artistName')(this.opts.filterby.value.toLowerCase()))
         .sort(sortOn(this.opts.sortby.value)); 
-    }
+      }
+
+    this.preview = riot.observable();
+    this.preview.value = {};
+      
+    this.playVideo = e => {
+      this.preview.value = e.item;
+      this.preview.trigger('changed');
+      }
   </script>
 </itunes-list>

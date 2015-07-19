@@ -35,7 +35,7 @@
     this.onSearch = () => riot.control.trigger(riot.EVT.queryITunesStore, this.artist.value, this.media.value);
     this.onSelectMedia = e => this.opts.media.value = e.target.value;
     
-    this.onFilterbyChange = (e) => {
+    this.onFilterbyChange = e => {
       this.opts.filterby.value = e.target.value;
       this.opts.filterby.trigger('changed');
     }
