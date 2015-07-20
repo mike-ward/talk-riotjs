@@ -49,7 +49,7 @@ import "./itunes-video-player.tag"
       }
 
     this.preview = riot.observable();
-    this.preview.value = {};
+    this.preview.value = '';
       
     this.playVideo = e => {
       this.preview.value = e.item;

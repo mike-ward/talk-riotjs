@@ -1,3 +1,5 @@
+import riot from 'riot'
+
 <itunes-video-player>
   <style>
     div.popupPlayer { z-index: 10; position: fixed; top: 50%; left: 50%; margin-left: -160px; margin-top: -150px; 
@@ -33,5 +35,10 @@
         this.player.pause();
         this.media = null;
     }
+    
+    riot.control.on(riot.EVT.queryITunesStoreSuccess, () => { 
+      this.close(); 
+      this.update(); 
+    });
   </script>
 </itunes-video-player>
