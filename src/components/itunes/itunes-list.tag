@@ -16,8 +16,8 @@ import "./itunes-player.tag";
       </tr>
     </thead>
     <tbody>
-      <tr each="{filterResults(mediaItems)}">
-        <td><button onclick="{play}" class="pure-button">►</i></button></td>
+      <tr each="{filter(mediaItems)}">
+        <td><button onclick="{play}" class="pure-button">►</button></td>
         <td><a href="{previewUrl}" target="_blank"><img src="{artworkUrl60}" /></a></td>
         <td>{trackName || collectionName}</td>
         <td>{kind}</td>
@@ -29,27 +29,28 @@ import "./itunes-player.tag";
     </tbody>
   </table>
   
-  <itunes-player media="{track}" />
-
   <script>
     this.mediaItems = [];
     this.filterby = '';
     this.sortby = 'artistName';
     
-    this.opts.filters.on('changed', (fb, sb) => this.update({filterby: fb, sortby: sb}));
-    riot.control.on(riot.EVT.queryITunesStoreSuccess, items => this.update({mediaItems: items}));
+    riot.control.on(riot.EVT.queryITunesStoreSuccess, items => {
+      this.play(null);
+      this.update({mediaItems: items});
+    })
     
-    this.filterResults = items => { 
-      let filterOn = field => text => r => r[field] && r[field].toLowerCase().indexOf(text) !== -1;
+    this.opts.filters.on('changed', (fb, sb) => this.update({filterby: fb, sortby: sb}));
+    
+    this.filter = items => { 
+      let filterOn = (field, text) => r => r[field] && r[field].toLowerCase().includes(text.toLowerCase());
       let sortOn = field => (l, r) => l[field] ? l[field].localeCompare(r[field]) : 0; 
       
       return items
         .results
-        .filter(filterOn(this.sortby)(this.filterby.toLowerCase()))
+        .filter(filterOn(this.sortby, this.filterby))
         .sort(sortOn(this.sortby)); 
       }
 
-    this.track = riot.observable();
-    this.play = e => this.track.trigger('changed', e.item);
+    this.play = e => this.opts.track.trigger('changed', e && e.item);
   </script>
 </itunes-list>

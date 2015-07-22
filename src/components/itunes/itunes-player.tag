@@ -22,7 +22,7 @@ import riot from 'riot'
     this.opts.media.on('changed', media => {
       this.close();
       this.media = media;
-      this.play(this.media.previewUrl);
+      this.play(this.media && this.media.previewUrl);
       this.update();
     })
     
@@ -36,10 +36,5 @@ import riot from 'riot'
         this.player.pause();
         this.media = null;
     }
-    
-    riot.control.on(riot.EVT.queryITunesStoreSuccess, () => { 
-      this.close(); 
-      this.update(); 
-    });
   </script>
 </itunes-player>

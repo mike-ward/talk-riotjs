@@ -22,5 +22,3 @@ class ITunesStore {
 // add store to riot control
 let iTunesStore = new ITunesStore();
 riot.control.addStore(iTunesStore);
-
-export default iTunesStore;
