@@ -1,5 +1,5 @@
-import riot from 'riot'
-import "./itunes-video-player.tag"
+import riot from 'riot';
+import "./itunes-player.tag";
 
 <itunes-list>
   <table show="{mediaItems.resultCount}" class="pure-table">
@@ -17,7 +17,7 @@ import "./itunes-video-player.tag"
     </thead>
     <tbody>
       <tr each="{filterResults(mediaItems)}">
-        <td><button onclick="{playVideo}" class="pure-button">►</i></button></td>
+        <td><button onclick="{play}" class="pure-button">►</i></button></td>
         <td><a href="{previewUrl}" target="_blank"><img src="{artworkUrl60}" /></a></td>
         <td>{trackName || collectionName}</td>
         <td>{kind}</td>
@@ -29,31 +29,27 @@ import "./itunes-video-player.tag"
     </tbody>
   </table>
   
-  <itunes-video-player media="{preview}" />
+  <itunes-player media="{track}" />
 
   <script>
     this.mediaItems = [];
+    this.filterby = '';
+    this.sortby = 'artistName';
     
-    this.opts.sortby.on('changed', () => this.update());  
-    this.opts.filterby.on('changed', () => this.update());  
+    this.opts.filters.on('changed', (fb, sb) => this.update({filterby: fb, sortby: sb}));
     riot.control.on(riot.EVT.queryITunesStoreSuccess, items => this.update({mediaItems: items}));
     
     this.filterResults = items => { 
-      let filterOn = f => fb => r => r[f].toLowerCase().indexOf(fb) !== -1;
-      let sortOn = f => (l, r) => l[f] ? l[f].localeCompare(r[f]) : 0; 
+      let filterOn = field => text => r => r[field] && r[field].toLowerCase().indexOf(text) !== -1;
+      let sortOn = field => (l, r) => l[field] ? l[field].localeCompare(r[field]) : 0; 
       
       return items
         .results
-        .filter(filterOn('artistName')(this.opts.filterby.value.toLowerCase()))
-        .sort(sortOn(this.opts.sortby.value)); 
+        .filter(filterOn(this.sortby)(this.filterby.toLowerCase()))
+        .sort(sortOn(this.sortby)); 
       }
 
-    this.preview = riot.observable();
-    this.preview.value = '';
-      
-    this.playVideo = e => {
-      this.preview.value = e.item;
-      this.preview.trigger('changed');
-      }
+    this.track = riot.observable();
+    this.play = e => this.track.trigger('changed', e.item);
   </script>
 </itunes-list>

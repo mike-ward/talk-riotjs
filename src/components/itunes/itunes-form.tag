@@ -15,11 +15,11 @@
     
     <button 
       class="pure-button pure-button-primary" 
-      onclick="{ onSearch }">Search</button>
+      onclick="{onSearch}">Search</button>
       
     <span class="pull-right">
       <label>Sort by</label>
-      <select name="sortBy" onchange="{onSortbyChanged}">
+      <select name="sortby" onchange="{onFilter}">
         <option value="artistName">Artist</option>
         <option value="trackName">Track</option>
         <option value="collectionName">Collection</option>
@@ -27,22 +27,12 @@
       </select>
       
       <label>Filter by</label>
-      <input type="text" value="{ opts.filterby.value }" oninput="{ onFilterbyChange }">
+      <input type="text" name="filterby" oninput="{onFilter}">
     </span>
   </form>
   
   <script>
-    this.onSearch = () => riot.control.trigger(riot.EVT.queryITunesStore, this.artist.value, this.media.value);
-    this.onSelectMedia = e => this.opts.media.value = e.target.value;
-    
-    this.onFilterbyChange = e => {
-      this.opts.filterby.value = e.target.value;
-      this.opts.filterby.trigger('changed');
-    }
-      
-    this.onSortbyChanged = e => {
-      this.opts.sortby.value = e.target.value;
-      this.opts.sortby.trigger('changed');
-    }
+    this.onSearch = e => riot.control.trigger(riot.EVT.queryITunesStore, this.artist.value, this.media.value);
+    this.onFilter = e => this.opts.filters.trigger('changed', this.filterby.value, this.sortby.value);
   </script>
 </itunes-form>

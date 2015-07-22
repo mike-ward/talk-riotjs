@@ -1,8 +1,8 @@
 import riot from 'riot'
 
-<itunes-video-player>
+<itunes-player>
   <style>
-    div.popupPlayer { z-index: 10; position: fixed; top: 50%; left: 50%; margin-left: -160px; margin-top: -150px; 
+    itunes-player .popupPlayer { z-index: 10; position: fixed; top: 50%; left: 50%; margin-left: -160px; margin-top: -150px; 
       width: 360px; border: solid 1px #bbb; padding: 20px; background-color: white; }
   </style>
   
@@ -12,15 +12,15 @@ import riot from 'riot'
       <div>{media.trackName}</div>
       <small>by&nbsp;<cite>{media.artistName}</cite></small>
     </div>
-    <video name="player" type="video/mp4" width="320px" height="240px"></video>
+    <video name="player" type="video/mp4" width="320px" height="240px">
   </div>
   
   <script>
     this.media = null;
     
-    this.opts.media.on('changed', () => {
-      if (this.opts.media.value) {
-        this.media = this.opts.media.value;
+    this.opts.media.on('changed', media => {
+      if (media) {
+        this.media = media;
         this.player.src = this.media.previewUrl;
         this.player.load();
         this.player.play();
@@ -41,4 +41,4 @@ import riot from 'riot'
       this.update(); 
     });
   </script>
-</itunes-video-player>
+</itunes-player>

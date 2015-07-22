@@ -3,19 +3,11 @@ import './itunes-form.tag';
 import './itunes-list.tag';
 
 <itunes-browser>
-  <style>
-    .pull-right { float:right; }
-  </style>
-  
-  <itunes-form filterby="{filterBy}" sortby="{sortBy}" />
+  <itunes-form filters="{filters}" />
   <hr style="margin: 1pc 0;">
-  <itunes-list filterby="{filterBy}" sortby="{sortBy}" />
+  <itunes-list filters="{filters}" />
   
   <script>
-    this.filterBy = riot.observable();
-    this.filterBy.value = '';
-    
-    this.sortBy = riot.observable();
-    this.sortBy.value = '';
+    this.filters = riot.observable();
   </script>
 </itunes-browser>
