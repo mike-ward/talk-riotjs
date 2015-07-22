@@ -4,7 +4,7 @@
     <input name="artist" type="text" placeholder="Required" class="pure-input-rounded" required>
     
     <label>Media Type</label>
-    <select name="media" onchange="{onSelectMedia}">
+    <select name="media">
       <option value="all" selected>All</option>
       <option value="musicVideo">Video</option>
       <option value="movie">Movie</option>

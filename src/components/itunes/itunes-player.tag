@@ -2,8 +2,9 @@ import riot from 'riot'
 
 <itunes-player>
   <style>
-    itunes-player .popupPlayer { z-index: 10; position: fixed; top: 50%; left: 50%; margin-left: -160px; margin-top: -150px; 
-      width: 360px; border: solid 1px #bbb; padding: 20px; background-color: white; }
+    itunes-player .popupPlayer { z-index: 10; position: fixed; top: 50%; left: 50%; 
+      margin-left: -160px; margin-top: -150px; width: 360px; border: solid 1px #bbb; 
+      padding: 20px; background-color: white; }
   </style>
   
   <div class="popupPlayer" show="{media}">
@@ -19,17 +20,17 @@ import riot from 'riot'
     this.media = null;
     
     this.opts.media.on('changed', media => {
-      if (media) {
-        this.media = media;
-        this.player.src = this.media.previewUrl;
+      this.close();
+      this.media = media;
+      this.play(this.media.previewUrl);
+      this.update();
+    })
+    
+    this.play = src => {
+        this.player.src = src;
         this.player.load();
         this.player.play();
-      }
-      else {
-        this.close();
-      }
-      this.update();
-    });
+    }
     
     this.close = e => {
         this.player.pause();
