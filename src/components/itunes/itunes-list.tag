@@ -17,8 +17,8 @@ import "./itunes-player.tag";
     </thead>
     <tbody>
       <tr each="{filter(mediaItems)}">
-        <td><button onclick="{play}" class="pure-button">►</button></td>
-        <td><a href="{previewUrl}" target="_blank"><img src="{artworkUrl60}" /></a></td>
+        <td><button onclick="{play}" class="pure-button" disabled="{!previewUrl}">►</button></td>
+        <td><img src="{artworkUrl60}" /></td>
         <td>{trackName || collectionName}</td>
         <td>{kind}</td>
         <td>{artistName}</td>
@@ -40,17 +40,16 @@ import "./itunes-player.tag";
     })
     
     this.opts.filters.on('changed', (fb, sb) => this.update({filterby: fb, sortby: sb}));
+    this.play = e => this.opts.track.trigger('changed', e && e.item);
     
     this.filter = items => { 
-      let filterOn = (field, text) => r => r[field] && r[field].toLowerCase().includes(text.toLowerCase());
+      let filterOn = (field, text) => r => r[field] && r[field].toLowerCase().includes(text);
       let sortOn = field => (l, r) => l[field] ? l[field].localeCompare(r[field]) : 0; 
       
       return items
         .results
-        .filter(filterOn(this.sortby, this.filterby))
+        .filter(filterOn(this.sortby, this.filterby.toLowerCase()))
         .sort(sortOn(this.sortby)); 
       }
-
-    this.play = e => this.opts.track.trigger('changed', e && e.item);
   </script>
 </itunes-list>

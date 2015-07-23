@@ -1,13 +1,13 @@
-import riot from 'riot'
+import riot from 'riot';
 
 <itunes-player>
-  <style>
-    itunes-player .popupPlayer { z-index: 10; position: fixed; top: 50%; left: 50%; 
+  <style scoped>
+    .popupPlayer { z-index: 10; position: fixed; top: 50%; left: 50%; 
       margin-left: -160px; margin-top: -150px; width: 360px; border: solid 1px #bbb; 
       padding: 20px; background-color: white; }
   </style>
   
-  <div class="popupPlayer" show="{media}">
+  <div show="{media}" class="popupPlayer">
     <div>
       <button onclick="{close}" class="pure-button pure-button-xsmall pull-right">x</button>
       <div>{media.trackName}</div>
@@ -17,8 +17,6 @@ import riot from 'riot'
   </div>
   
   <script>
-    this.media = null;
-    
     this.opts.media.on('changed', media => {
       this.close();
       this.media = media;

@@ -1,5 +1,5 @@
 <itunes-form>
-  <form class="pure-form">
+  <form class="pure-form" onsubmit="{onSearch}">
     <label>Search for</label>
     <input name="artist" type="text" placeholder="Required" class="pure-input-rounded" required>
     
@@ -13,9 +13,7 @@
       <option value="tvShow">TV Show</option>
     </select>
     
-    <button 
-      class="pure-button pure-button-primary" 
-      onclick="{onSearch}">Search</button>
+    <button class="pure-button pure-button-primary">Search</button>
       
     <span class="pull-right">
       <label>Sort by</label>
@@ -27,7 +25,7 @@
       </select>
       
       <label>Filter by</label>
-      <input type="text" name="filterby" oninput="{onFilter}">
+      <input name="filterby" type="text" oninput="{onFilter}">
     </span>
   </form>
   
