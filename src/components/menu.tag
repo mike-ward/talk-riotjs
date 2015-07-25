@@ -1,6 +1,9 @@
 <menu>
   <ul class="clearfix">
-    <li each="{ navItems }" onclick="{ parent.route }" class="{ active: parent.currentView === this.view }">{ this.title }</li>
+    <li 
+      each="{ navItems }" 
+      onclick="{ parent.route }" 
+      class="{ active: parent.currentView === this.view }">{ this.title }</li>
   </ul>
   
   <script>

@@ -11,14 +11,13 @@
   clear: both;
 }
 
-*{
+* {
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
-body{
-  font-family: sans-serif;
+body {
   background: var(--mainColor);
 }
 
@@ -27,22 +26,21 @@ header{
   color:white;
   background: var(--headerColor);
 
-  h1{
+  h1 {
     float:left;
     margin: 0;
     font-size:1.25rem;
   }
-
 }
 
 menu{
   display:block;
   float:right;
 
-  ul{
+  ul {
     list-style: none;
 
-    li{
+    li {
       float:left;
       margin-left:1em;
       cursor:pointer;
@@ -50,24 +48,24 @@ menu{
       opacity: .7
     }
 
-    li:hover{
+    li:hover {
       opacity: .5;
     }
 
-    li.active{
+    li.active {
       opacity: 1;
     }
   }
 }
 
-.content{
+.content {
   padding: 1em;
 }
 
-itemlist{
+itemlist {
   display:block;
 
-  ul{
+  ul {
     list-style: none;
   }
 }

@@ -1,5 +1,4 @@
 import riot from 'riot';
-import "./itunes-player.tag";
 
 <itunes-list>
   <table show="{mediaItems.resultCount}" class="pure-table">

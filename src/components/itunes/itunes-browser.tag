@@ -1,6 +1,7 @@
 import riot from 'riot';
 import './itunes-form.tag'; 
 import './itunes-list.tag';
+import './itunes-player.tag'
 
 <itunes-browser>
   <itunes-form filters="{filters}" />
