@@ -1,3 +1,5 @@
+import riot from 'riot';
+
 <menu>
   <ul class="clearfix">
     <li 

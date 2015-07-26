@@ -1,3 +1,5 @@
+import riot from 'riot';
+
 <itemlist>
   <h3>{ opts.title }</h3>
 
