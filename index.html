@@ -443,7 +443,65 @@ code { background: #efefef; }
 <span class="tag">&lt;/<span class="title">todo</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-3">
+  <div class="slide hidden -" id="slide-3">
+    <section class="slide-content"><h3 id="example-to-do-application">Example To-Do Application</h3>
+<p><a href="https://muut.github.io/riotjs/demo/">https://muut.github.io/riotjs/demo/</a></p>
+<p><img src="todo.png" alt="todo"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-4">
+    <section class="slide-content"><h3 id="human-readable">Human Readable</h3>
+<p>Custom tags let you build complex views with HTML. Your application might look something like this:</p>
+<pre><code class="lang-javascript">&lt;body&gt;
+
+  <span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Acme community<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">forum-header</span>/&gt;</span>
+
+  <span class="tag">&lt;<span class="title">forum-content</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">forum-threads</span>/&gt;</span>
+    <span class="tag">&lt;<span class="title">forum-sidebar</span>/&gt;</span>
+  <span class="tag">&lt;/<span class="title">forum-content</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">forum-footer</span>/&gt;</span>
+
+  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">riot.mount(<span class="string">'*'</span>, { api: forum_api })</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-5">
+    <section class="slide-content"><h3 id="before-we-go-further-">Before we go Further...</h3>
+<h4 id="what-is-react-and-what-problem-is-it-trying-to-solve-">What is React and what problem is it trying to solve?</h4>
+<p><img src="react-logo.png" alt=""></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-6">
+    <section class="slide-content"><h4 id="recognize-this-">Recognize this?</h4>
+<p><img src="facebook_chat.jpg" alt=""></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-7">
+    <section class="slide-content"><h3 id="the-problem">The Problem</h3>
+<p><img src="mvc-mess.png" alt=""></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-8">
+    <section class="slide-content"><h3 id="lessons-from-react">Lessons from React</h3>
+<ul>
+<li>Always Re-Render Views</li>
+<li>Use a DOM abstraction</li>
+<li>Data flows in one direction</li>
+<li>Components Rule</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-9">
+    <section class="slide-content"><h3 id="size-matters">Size Matters</h3>
+<p><img src="size-matters.png" alt=""></p>
+<p><img src="size-matters-polymer.png" alt=""></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-10">
     <section class="slide-content"><div class="author">
   <h1 class="name">Mike Ward</h1>
     <h3 class="twitter">
