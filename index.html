@@ -414,7 +414,36 @@ code { background: #efefef; }
 <h2 id="http-mike-ward-net-talk-riotjs"><a href="http://mike-ward.net/talk-riotjs">http://mike-ward.net/talk-riotjs</a></h2>
 </section>
   </div>
-  <div class="slide hidden" id="slide-2">
+  <div class="slide hidden " id="slide-2">
+    <section class="slide-content"><pre><code class="lang-javascript">&lt;todo&gt;
+  <span class="xml"><span class="tag">&lt;<span class="title">h3</span>&gt;</span>{ opts.title }<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">each</span>=<span class="value">{</span> <span class="attribute">item</span>, <span class="attribute">i</span> <span class="attribute">in</span> <span class="attribute">items</span> }&gt;</span>{ item }<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">form</span> <span class="attribute">onsubmit</span>=<span class="value">{</span> <span class="attribute">add</span> }&gt;</span>
+    <span class="tag">&lt;<span class="title">input</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">button</span>&gt;</span>Add #{ items.length + 1 }<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">style</span> <span class="attribute">scoped</span>&gt;</span><span class="css">
+    <span class="tag">h3</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">14</span>px;</span></span> <span class="rule">}</span></span>
+  </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+
+  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+    <span class="keyword">this</span>.items = []
+
+    add(e) {
+      <span class="keyword">var</span> input = e.target[<span class="number">0</span>]
+      <span class="keyword">this</span>.items.push(input.value)
+      input.value = <span class="string">''</span>
+    }
+  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">todo</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-3">
     <section class="slide-content"><div class="author">
   <h1 class="name">Mike Ward</h1>
     <h3 class="twitter">
