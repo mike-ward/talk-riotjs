@@ -11,15 +11,15 @@ style: style.css
 ## http://mike-ward.net/talk-riotjs
 
 --
-```javascript
+```xml
 <todo>
   <h3>{ opts.title }</h3>
 
   <ul>
-    <li each={ item, i in items }>{ item }</li>
+    <li each="{ item, i in items }>"{ item }</li>
   </ul>
 
-  <form onsubmit={ add }>
+  <form onsubmit="{ add }">
     <input>
     <button>Add #{ items.length + 1 }</button>
   </form>
@@ -50,7 +50,7 @@ https://muut.github.io/riotjs/demo/
 
 Custom tags let you build complex views with HTML. Your application might look something like this:
 
-```javascript
+```xml
 <body>
 
   <h1>Acme community</h1>
@@ -72,15 +72,15 @@ Custom tags let you build complex views with HTML. Your application might look s
 
 #### What is React and what problem is it trying to solve?
 
-![](react-logo.png)
+![center](react-logo.png)
 --
 #### Recognize this?
 
-![](facebook_chat.jpg)
+![center](facebook_chat.jpg)
 --
 ### The Problem
 
-![](mvc-mess.png)
+![center](mvc-mess.png)
 --
 ### Lessons from React
 
@@ -91,6 +91,6 @@ Custom tags let you build complex views with HTML. Your application might look s
 --
 ### Size Matters
 
-![](size-matters.png)
+![center](size-matters.png)
 
-![](size-matters-polymer.png)
+![center](size-matters-polymer.png)

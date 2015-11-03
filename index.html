@@ -401,6 +401,10 @@ code { background: #efefef; }
 	margin-top: 2pc;
 }
 
+img[alt="center"]{
+  margin: auto;
+  display: block;
+}
   </style>
 </head>
 <body>
@@ -415,14 +419,14 @@ code { background: #efefef; }
 </section>
   </div>
   <div class="slide hidden " id="slide-2">
-    <section class="slide-content"><pre><code class="lang-javascript">&lt;todo&gt;
-  <span class="xml"><span class="tag">&lt;<span class="title">h3</span>&gt;</span>{ opts.title }<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+    <section class="slide-content"><pre><code class="lang-xml"><span class="tag">&lt;<span class="title">todo</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h3</span>&gt;</span>{ opts.title }<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
 
   <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">each</span>=<span class="value">{</span> <span class="attribute">item</span>, <span class="attribute">i</span> <span class="attribute">in</span> <span class="attribute">items</span> }&gt;</span>{ item }<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">each</span>=<span class="value">"{ item, i in items }&gt;"</span>{ <span class="attribute">item</span> }&lt;/<span class="attribute">li</span>&gt;</span>
   <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
 
-  <span class="tag">&lt;<span class="title">form</span> <span class="attribute">onsubmit</span>=<span class="value">{</span> <span class="attribute">add</span> }&gt;</span>
+  <span class="tag">&lt;<span class="title">form</span> <span class="attribute">onsubmit</span>=<span class="value">"{ add }"</span>&gt;</span>
     <span class="tag">&lt;<span class="title">input</span>&gt;</span>
     <span class="tag">&lt;<span class="title">button</span>&gt;</span>Add #{ items.length + 1 }<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
   <span class="tag">&lt;/<span class="title">form</span>&gt;</span>
@@ -440,7 +444,7 @@ code { background: #efefef; }
       input.value = <span class="string">''</span>
     }
   </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">todo</span>&gt;</span></span></code></pre>
+<span class="tag">&lt;/<span class="title">todo</span>&gt;</span></code></pre>
 </section>
   </div>
   <div class="slide hidden -" id="slide-3">
@@ -452,9 +456,9 @@ code { background: #efefef; }
   <div class="slide hidden " id="slide-4">
     <section class="slide-content"><h3 id="human-readable">Human Readable</h3>
 <p>Custom tags let you build complex views with HTML. Your application might look something like this:</p>
-<pre><code class="lang-javascript">&lt;body&gt;
+<pre><code class="lang-xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
 
-  <span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>Acme community<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Acme community<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
 
   <span class="tag">&lt;<span class="title">forum-header</span>/&gt;</span>
 
@@ -466,23 +470,23 @@ code { background: #efefef; }
   <span class="tag">&lt;<span class="title">forum-footer</span>/&gt;</span>
 
   <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">riot.mount(<span class="string">'*'</span>, { api: forum_api })</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span></span></code></pre>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></pre>
 </section>
   </div>
   <div class="slide hidden " id="slide-5">
     <section class="slide-content"><h3 id="before-we-go-further-">Before we go Further...</h3>
 <h4 id="what-is-react-and-what-problem-is-it-trying-to-solve-">What is React and what problem is it trying to solve?</h4>
-<p><img src="react-logo.png" alt=""></p>
+<p><img src="react-logo.png" alt="center"></p>
 </section>
   </div>
   <div class="slide hidden " id="slide-6">
     <section class="slide-content"><h4 id="recognize-this-">Recognize this?</h4>
-<p><img src="facebook_chat.jpg" alt=""></p>
+<p><img src="facebook_chat.jpg" alt="center"></p>
 </section>
   </div>
   <div class="slide hidden " id="slide-7">
     <section class="slide-content"><h3 id="the-problem">The Problem</h3>
-<p><img src="mvc-mess.png" alt=""></p>
+<p><img src="mvc-mess.png" alt="center"></p>
 </section>
   </div>
   <div class="slide hidden " id="slide-8">
@@ -497,8 +501,8 @@ code { background: #efefef; }
   </div>
   <div class="slide hidden " id="slide-9">
     <section class="slide-content"><h3 id="size-matters">Size Matters</h3>
-<p><img src="size-matters.png" alt=""></p>
-<p><img src="size-matters-polymer.png" alt=""></p>
+<p><img src="size-matters.png" alt="center"></p>
+<p><img src="size-matters-polymer.png" alt="center"></p>
 </section>
   </div>
   <div class="slide hidden" id="slide-10">

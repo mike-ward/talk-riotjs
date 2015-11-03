@@ -6,3 +6,8 @@ code { background: #efefef; }
 	height: 800px;
 	margin-top: 2pc;
 }
+
+img[alt="center"]{
+  margin: auto;
+  display: block;
+}
