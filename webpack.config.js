@@ -6,6 +6,7 @@ var customProperties = require('postcss-custom-properties');
 var autoprefixer = require('autoprefixer-core');
 var csswring = require('csswring');
 var cssnested = require('postcss-nested');
+var progressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -18,9 +19,8 @@ module.exports = {
   devtool: 'eval',
   debug: true,
   plugins: [
-    new webpack.ProvidePlugin({
-      riot: 'riot'
-    })
+    progressBarPlugin(),
+    new webpack.ProvidePlugin({riot: 'riot'})
   ],
   module: {
     preLoaders: [
