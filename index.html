@@ -396,14 +396,26 @@ pre { font-size: 90%;  background: #efefef; }
 code { background: #efefef; }
 
 .slide-content {
-	width: 900px;
-	height: 800px;
-	margin-top: 2pc;
+  width: 900px;
+  height: 800px;
+  margin-top: 2pc;
 }
 
 img[alt="center"]{
   margin: auto;
   display: block;
+}
+
+div.slide {
+  transition: all 0.2s linear;
+  opacity: 1;
+  visibility: visible;
+}
+
+div.hidden {
+    display: block;
+    visibility: collapse;
+    opacity: 0;
 }
   </style>
 </head>
