@@ -45,6 +45,7 @@ style: style.css
 https://muut.github.io/riotjs/demo/
 
 ![todo](todo.png)
+
 --
 ### Human Readable
 
@@ -73,14 +74,17 @@ Custom tags let you build complex views with HTML. Your application might look s
 #### What is React and what problem is it trying to solve?
 
 ![center](react-logo.png)
+
 --
 #### Recognize this?
 
 ![center](facebook_chat.jpg)
+
 --
 ### The Problem
 
 ![center](mvc-mess.png)
+
 --
 ### Lessons from React
 
@@ -91,6 +95,82 @@ Custom tags let you build complex views with HTML. Your application might look s
 --
 ### Size Matters
 
-![center](size-matters.png)
+| Framework	              | Version	| Minified Size |
+|------------------------ | ------- | ------------- |
+| Ember	                  | 1.13.3	| 493.3kb       |
+| Angular	                | 1.4.2	  | 145.5kb       |
+| React	                  | 0.14.1	| 132.6kb       |
+| Web Components Polyfill	| 0.7.5   |	117.1kb       |
+| Polymer	                | 1.0.6	  | 101.2kb       |
+| Riot	                  | 2.3.11	| 18kb          |
 
-![center](size-matters-polymer.png)
+---
+### Difference between Riot and React
+
+The most significant difference lies in how the UI markup templates are declared:
+
+-   In React the UI template markup is baked in your JavaScript source 
+    (using the JSX language extension).
+
+-   Riot inverts the React model by putting the markup and logic in an 
+    HTML (tag) file.
+
+-   Riot tags are converted to pure JavaScript so browsers can execute them.   
+
+--
+### Why a new UI Library?
+
+-   In a word (well two words), **Custom Tags**
+
+-   Want enjoyable syntax
+
+-   HTML syntax is the de facto language of the web and it’s designed for 
+    building user interfaces. 
+
+-   HTML syntax is explicit, nesting is inherent to the language, and 
+    attributes offer a clean way to provide options for custom tags.
+
+--
+### Virtual DOM
+
+-   Absolutely the smallest possible amount of DOM updates and reflows
+
+-   One way data flow: updates and unmounts are propagated downwards 
+    from parent to children
+
+-   Expressions are pre-compiled and cached for high performance
+
+-   Lifecycle events for more control
+
+-   Server-side rendering of custom tags for universal 
+    (isomorphic) applications
+
+--
+### Close to Standards
+
+-   No proprietary event system
+
+-   The rendered DOM can be freely manipulated with other tools
+
+-   No extra HTML root elements or data- attributes
+
+-   Plays well with jQuery
+
+--
+### Tooling Friendly
+
+-  Create tags with ES6, Typescript, CoffeeScript, Jade, LiveScript or 
+   any pre-processor you want
+   
+-  Integrate with NPM, CommonJS, AMD, Bower or Component
+
+-  Develop with Gulp, Grunt or Browserify plugins
+
+--
+### Small Learning Curve
+
+Riot has between 10 and 100 times fewer API methods than other UI libraries.
+
+-  Less to learn. Fewer books and tutorials to view
+
+-  Less proprietary stuff and more standard stuff

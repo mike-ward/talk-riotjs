@@ -8,7 +8,6 @@
     body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #222;
-  background-color: #f7f7f7;
   font-size: 100%;
 }
 
@@ -16,6 +15,7 @@
   position: absolute;
   top: 0; bottom: 0;
   left: 0; right: 0;
+  background-color: #f7f7f7;
 }
 
 .slide-content {
@@ -256,140 +256,103 @@ pre {
 }
 
 /*
+
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
 */
 
-code, pre {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  overflow: auto;
-  padding: 6px 10px;
-}
-
-code {
-  padding: 0 5px;
-}
-
-pre>code {
-  margin: 0; padding: 0;
-  border: none;
-  background: transparent;
-}
-
-pre .comment,
-pre .template_comment,
-pre .diff .header,
-pre .javadoc {
-  color: #998;
-  font-style: italic
-}
-
-pre .keyword,
-pre .css .rule .keyword,
-pre .winutils,
-pre .javascript .title,
-pre .nginx .title,
-pre .subst,
-pre .request,
-pre .status {
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
   color: #333;
-  font-weight: bold
+  background: #f8f8f8;
 }
 
-pre .number,
-pre .hexcolor,
-pre .ruby .constant {
-  color: #099;
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
 }
 
-pre .string,
-pre .tag .value,
-pre .phpdoc,
-pre .tex .formula {
-  color: #d14
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
 }
 
-pre .title,
-pre .id {
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
   color: #900;
-  font-weight: bold
+  font-weight: bold;
 }
 
-pre .javascript .title,
-pre .lisp .title,
-pre .clojure .title,
-pre .subst {
-  font-weight: normal
+.hljs-subst {
+  font-weight: normal;
 }
 
-pre .class .title,
-pre .haskell .type,
-pre .vhdl .literal,
-pre .tex .command {
+.hljs-type,
+.hljs-class .hljs-title {
   color: #458;
-  font-weight: bold
+  font-weight: bold;
 }
 
-pre .tag,
-pre .tag .title,
-pre .rules .property,
-pre .django .tag .keyword {
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
   color: #000080;
-  font-weight: normal
+  font-weight: normal;
 }
 
-pre .attribute,
-pre .variable,
-pre .lisp .body {
-  color: #008080
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
 }
 
-pre .regexp {
-  color: #009926
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
 }
 
-pre .class {
-  color: #458;
-  font-weight: bold
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
 }
 
-pre .symbol,
-pre .ruby .symbol .string,
-pre .lisp .keyword,
-pre .tex .special,
-pre .prompt {
-  color: #990073
-}
-
-pre .built_in,
-pre .lisp .title,
-pre .clojure .built_in {
-  color: #0086b3
-}
-
-pre .preprocessor,
-pre .pi,
-pre .doctype,
-pre .shebang,
-pre .cdata {
+.hljs-meta {
   color: #999;
-  font-weight: bold
+  font-weight: bold;
 }
 
-pre .deletion {
-  background: #fdd
+.hljs-deletion {
+  background: #fdd;
 }
 
-pre .addition {
-  background: #dfd
+.hljs-addition {
+  background: #dfd;
 }
 
-pre .diff .change {
-  background: #0086b3
+.hljs-emphasis {
+  font-style: italic;
 }
 
-pre .chunk {
-  color: #aaa
+.hljs-strong {
+  font-weight: bold;
 }
 
 pre { font-size: 90%;  background: #efefef; }
@@ -408,14 +371,36 @@ img[alt="center"]{
 
 div.slide {
   transition: all 0.2s linear;
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
 }
 
 div.hidden {
     display: block;
     visibility: collapse;
     opacity: 0;
+}
+
+table {
+  margin: 1pc;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #ccc;
+}
+
+table th, table td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cbcbcb;
+  margin: 0;
+  font-size: 90%;
+  overflow: visible;
+  padding: .5em 1em;
+}
+
+table td {
+  background-color: transparent;
 }
   </style>
 </head>
@@ -431,32 +416,32 @@ div.hidden {
 </section>
   </div>
   <div class="slide hidden " id="slide-2">
-    <section class="slide-content"><pre><code class="lang-xml"><span class="tag">&lt;<span class="title">todo</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">h3</span>&gt;</span>{ opts.title }<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+    <section class="slide-content"><pre><code class="lang-xml">&lt;todo&gt;
+  &lt;h3&gt;{ opts.title }&lt;/h3&gt;
 
-  <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">each</span>=<span class="value">"{ item, i in items }&gt;"</span>{ <span class="attribute">item</span> }&lt;/<span class="attribute">li</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+  &lt;ul&gt;
+    &lt;li each="{ item, i in items }&gt;"{ item }&lt;/li&gt;
+  &lt;/ul&gt;
 
-  <span class="tag">&lt;<span class="title">form</span> <span class="attribute">onsubmit</span>=<span class="value">"{ add }"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">input</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">button</span>&gt;</span>Add #{ items.length + 1 }<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+  &lt;form onsubmit="{ add }"&gt;
+    &lt;input&gt;
+    &lt;button&gt;Add #{ items.length + 1 }&lt;/button&gt;
+  &lt;/form&gt;
 
-  <span class="tag">&lt;<span class="title">style</span> <span class="attribute">scoped</span>&gt;</span><span class="css">
-    <span class="tag">h3</span> <span class="rules">{ <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">14</span>px;</span></span> <span class="rule">}</span></span>
-  </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+  &lt;style scoped&gt;
+    h3 { font-size: 14px; }
+  &lt;/style&gt;
 
-  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
-    <span class="keyword">this</span>.items = []
+  &lt;script&gt;
+    this.items = []
 
     add(e) {
-      <span class="keyword">var</span> input = e.target[<span class="number">0</span>]
-      <span class="keyword">this</span>.items.push(input.value)
-      input.value = <span class="string">''</span>
+      var input = e.target[0]
+      this.items.push(input.value)
+      input.value = ''
     }
-  </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">todo</span>&gt;</span></code></pre>
+  &lt;/script&gt;
+&lt;/todo&gt;</code></pre>
 </section>
   </div>
   <div class="slide hidden -" id="slide-3">
@@ -468,21 +453,21 @@ div.hidden {
   <div class="slide hidden " id="slide-4">
     <section class="slide-content"><h3 id="human-readable">Human Readable</h3>
 <p>Custom tags let you build complex views with HTML. Your application might look something like this:</p>
-<pre><code class="lang-xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
 
-  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Acme community<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Acme community<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 
-  <span class="tag">&lt;<span class="title">forum-header</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">forum-header</span>/&gt;</span>
 
-  <span class="tag">&lt;<span class="title">forum-content</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">forum-threads</span>/&gt;</span>
-    <span class="tag">&lt;<span class="title">forum-sidebar</span>/&gt;</span>
-  <span class="tag">&lt;/<span class="title">forum-content</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">forum-content</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">forum-threads</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">forum-sidebar</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">forum-content</span>&gt;</span>
 
-  <span class="tag">&lt;<span class="title">forum-footer</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">forum-footer</span>/&gt;</span>
 
-  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">riot.mount(<span class="string">'*'</span>, { api: forum_api })</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></pre>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">riot.mount(<span class="hljs-string">'*'</span>, { api: forum_api })</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
 </section>
   </div>
   <div class="slide hidden " id="slide-5">
@@ -513,11 +498,137 @@ div.hidden {
   </div>
   <div class="slide hidden " id="slide-9">
     <section class="slide-content"><h3 id="size-matters">Size Matters</h3>
-<p><img src="size-matters.png" alt="center"></p>
-<p><img src="size-matters-polymer.png" alt="center"></p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Version</th>
+<th>Minified Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ember</td>
+<td>1.13.3</td>
+<td>493.3kb</td>
+</tr>
+<tr>
+<td>Angular</td>
+<td>1.4.2</td>
+<td>145.5kb</td>
+</tr>
+<tr>
+<td>React</td>
+<td>0.14.1</td>
+<td>132.6kb</td>
+</tr>
+<tr>
+<td>Web Components Polyfill</td>
+<td>0.7.5</td>
+<td>117.1kb</td>
+</tr>
+<tr>
+<td>Polymer</td>
+<td>1.0.6</td>
+<td>101.2kb</td>
+</tr>
+<tr>
+<td>Riot</td>
+<td>2.3.11</td>
+<td>18kb</td>
+</tr>
+</tbody>
+</table>
 </section>
   </div>
-  <div class="slide hidden" id="slide-10">
+  <div class="slide hidden -" id="slide-10">
+    <section class="slide-content"><h3 id="difference-between-riot-and-react">Difference between Riot and React</h3>
+<p>The most significant difference lies in how the UI markup templates are declared:</p>
+<ul>
+<li><p>In React the UI template markup is baked in your JavaScript source 
+(using the JSX language extension).</p>
+</li>
+<li><p>Riot inverts the React model by putting the markup and logic in an 
+HTML (tag) file.</p>
+</li>
+<li><p>Riot tags are converted to pure JavaScript so browsers can execute them.</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-11">
+    <section class="slide-content"><h3 id="why-a-new-ui-library-">Why a new UI Library?</h3>
+<ul>
+<li><p>In a word (well two words), <strong>Custom Tags</strong></p>
+</li>
+<li><p>Want enjoyable syntax</p>
+</li>
+<li><p>HTML syntax is the de facto language of the web and it’s designed for 
+building user interfaces. </p>
+</li>
+<li><p>HTML syntax is explicit, nesting is inherent to the language, and 
+attributes offer a clean way to provide options for custom tags.</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-12">
+    <section class="slide-content"><h3 id="virtual-dom">Virtual DOM</h3>
+<ul>
+<li><p>Absolutely the smallest possible amount of DOM updates and reflows</p>
+</li>
+<li><p>One way data flow: updates and unmounts are propagated downwards 
+from parent to children</p>
+</li>
+<li><p>Expressions are pre-compiled and cached for high performance</p>
+</li>
+<li><p>Lifecycle events for more control</p>
+</li>
+<li><p>Server-side rendering of custom tags for universal 
+(isomorphic) applications</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-13">
+    <section class="slide-content"><h3 id="close-to-standards">Close to Standards</h3>
+<ul>
+<li><p>No proprietary event system</p>
+</li>
+<li><p>The rendered DOM can be freely manipulated with other tools</p>
+</li>
+<li><p>No extra HTML root elements or data- attributes</p>
+</li>
+<li><p>Plays well with jQuery</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-14">
+    <section class="slide-content"><h3 id="tooling-friendly">Tooling Friendly</h3>
+<ul>
+<li><p>Create tags with ES6, Typescript, CoffeeScript, Jade, LiveScript or 
+any pre-processor you want</p>
+</li>
+<li><p>Integrate with NPM, CommonJS, AMD, Bower or Component</p>
+</li>
+<li><p>Develop with Gulp, Grunt or Browserify plugins</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-15">
+    <section class="slide-content"><h3 id="small-learning-curve">Small Learning Curve</h3>
+<p>Riot has between 10 and 100 times fewer API methods than other UI libraries.</p>
+<ul>
+<li><p>Less to learn. Fewer books and tutorials to view</p>
+</li>
+<li><p>Less proprietary stuff and more standard stuff</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-16">
     <section class="slide-content"><div class="author">
   <h1 class="name">Mike Ward</h1>
     <h3 class="twitter">

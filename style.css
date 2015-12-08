@@ -23,3 +23,25 @@ div.hidden {
     visibility: collapse;
     opacity: 0;
 }
+
+table {
+  margin: 1pc;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #ccc;
+}
+
+table th, table td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cbcbcb;
+  margin: 0;
+  font-size: 90%;
+  overflow: visible;
+  padding: .5em 1em;
+}
+
+table td {
+  background-color: transparent;
+}
