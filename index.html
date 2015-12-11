@@ -420,32 +420,32 @@ table td {
 </section>
   </div>
   <div class="slide hidden " id="slide-3">
-    <section class="slide-content"><pre><code class="lang-xml">&lt;todo&gt;
-  &lt;h3&gt;{ opts.title }&lt;/h3&gt;
+    <section class="slide-content"><pre><code class="lang-js">&lt;todo&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>{ opts.title }<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-  &lt;ul&gt;
-    &lt;li each="{ item, i in items }&gt;"{ item }&lt;/li&gt;
-  &lt;/ul&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">each</span>=<span class="hljs-string">"{ item, i in items }&gt;"</span><span class="hljs-string">{</span> <span class="hljs-attr">item</span> }&lt;/<span class="hljs-attr">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 
-  &lt;form onsubmit="{ add }"&gt;
-    &lt;input&gt;
-    &lt;button&gt;Add #{ items.length + 1 }&lt;/button&gt;
-  &lt;/form&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">onsubmit</span>=<span class="hljs-string">"{ add }"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Add #{ items.length + 1 }<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 
-  &lt;style scoped&gt;
-    h3 { font-size: 14px; }
-  &lt;/style&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+    <span class="hljs-selector-tag">h3</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>; }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 
-  &lt;script&gt;
-    this.items = []
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-keyword">this</span>.items = []
 
     add(e) {
-      var input = e.target[0]
-      this.items.push(input.value)
-      input.value = ''
+      <span class="hljs-keyword">var</span> input = e.target[<span class="hljs-number">0</span>]
+      <span class="hljs-keyword">this</span>.items.push(input.value)
+      input.value = <span class="hljs-string">''</span>
     }
-  &lt;/script&gt;
-&lt;/todo&gt;</code></pre>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span></span></code></pre>
 </section>
   </div>
   <div class="slide hidden " id="slide-4">
@@ -566,32 +566,32 @@ any pre-processor you want</p>
 </section>
   </div>
   <div class="slide hidden " id="slide-10">
-    <section class="slide-content"><pre><code class="lang-xml">&lt;todo&gt;
-  &lt;h3&gt;{ opts.title }&lt;/h3&gt;
+    <section class="slide-content"><pre><code class="lang-js">&lt;todo&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>{ opts.title }<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-  &lt;ul&gt;
-    &lt;li each="{ item, i in items }&gt;"{ item }&lt;/li&gt;
-  &lt;/ul&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">each</span>=<span class="hljs-string">"{ item, i in items }&gt;"</span><span class="hljs-string">{</span> <span class="hljs-attr">item</span> }&lt;/<span class="hljs-attr">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 
-  &lt;form onsubmit="{ add }"&gt;
-    &lt;input&gt;
-    &lt;button&gt;Add #{ items.length + 1 }&lt;/button&gt;
-  &lt;/form&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">onsubmit</span>=<span class="hljs-string">"{ add }"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Add #{ items.length + 1 }<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 
-  &lt;style scoped&gt;
-    h3 { font-size: 14px; }
-  &lt;/style&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+    <span class="hljs-selector-tag">h3</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>; }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 
-  &lt;script&gt;
-    this.items = []
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+    <span class="hljs-keyword">this</span>.items = []
 
     add(e) {
-      var input = e.target[0]
-      this.items.push(input.value)
-      input.value = ''
+      <span class="hljs-keyword">var</span> input = e.target[<span class="hljs-number">0</span>]
+      <span class="hljs-keyword">this</span>.items.push(input.value)
+      input.value = <span class="hljs-string">''</span>
     }
-  &lt;/script&gt;
-&lt;/todo&gt;</code></pre>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span></span></code></pre>
 </section>
   </div>
   <div class="slide hidden -" id="slide-11">

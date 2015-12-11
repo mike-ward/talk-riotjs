@@ -14,7 +14,7 @@ style: style.css
 ![collage](collage.png)
 
 --
-```xml
+```js
 <todo>
   <h3>{ opts.title }</h3>
 
@@ -113,7 +113,7 @@ Riot has between 10 and 100 times fewer API methods than other UI libraries.
 | Riot	                  | 2.3.11	| 18kb          |
 
 --
-```xml
+```js
 <todo>
   <h3>{ opts.title }</h3>
 
