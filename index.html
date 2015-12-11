@@ -416,6 +416,10 @@ table td {
 </section>
   </div>
   <div class="slide hidden " id="slide-2">
+    <section class="slide-content"><p><img src="collage.png" alt="collage"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-3">
     <section class="slide-content"><pre><code class="lang-xml">&lt;todo&gt;
   &lt;h3&gt;{ opts.title }&lt;/h3&gt;
 
@@ -444,55 +448,75 @@ table td {
 &lt;/todo&gt;</code></pre>
 </section>
   </div>
-  <div class="slide hidden -" id="slide-3">
-    <section class="slide-content"><h3 id="example-to-do-application">Example To-Do Application</h3>
-<p><a href="https://muut.github.io/riotjs/demo/">https://muut.github.io/riotjs/demo/</a></p>
-<p><img src="todo.png" alt="todo"></p>
-</section>
-  </div>
   <div class="slide hidden " id="slide-4">
-    <section class="slide-content"><h3 id="human-readable">Human Readable</h3>
-<p>Custom tags let you build complex views with HTML. Your application might look something like this:</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Acme community<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">forum-header</span>/&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">forum-content</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">forum-threads</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">forum-sidebar</span>/&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">forum-content</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">forum-footer</span>/&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">riot.mount(<span class="hljs-string">'*'</span>, { api: forum_api })</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+    <section class="slide-content"><h3 id="why-a-new-ui-library-">Why a new UI Library?</h3>
+<ul>
+<li><p>In a word (well two words), <strong>Custom Tags</strong></p>
+</li>
+<li><p>Want enjoyable syntax</p>
+</li>
+<li><p>HTML syntax is the de facto language of the web and it’s designed for 
+building user interfaces. </p>
+</li>
+<li><p>HTML syntax is explicit, nesting is inherent to the language, and 
+attributes offer a clean way to provide options for custom tags.</p>
+</li>
+</ul>
 </section>
   </div>
   <div class="slide hidden " id="slide-5">
-    <section class="slide-content"><h3 id="before-we-go-further-">Before we go Further...</h3>
-<h4 id="what-is-react-and-what-problem-is-it-trying-to-solve-">What is React and what problem is it trying to solve?</h4>
-<p><img src="react-logo.png" alt="center"></p>
+    <section class="slide-content"><h3 id="virtual-dom">Virtual DOM</h3>
+<ul>
+<li><p>Absolutely the smallest possible amount of DOM updates and reflows</p>
+</li>
+<li><p>One way data flow: updates and unmounts are propagated downwards 
+from parent to children</p>
+</li>
+<li><p>Expressions are pre-compiled and cached for high performance</p>
+</li>
+<li><p>Lifecycle events for more control</p>
+</li>
+<li><p>Server-side rendering of custom tags for universal 
+(isomorphic) applications</p>
+</li>
+</ul>
 </section>
   </div>
   <div class="slide hidden " id="slide-6">
-    <section class="slide-content"><h4 id="recognize-this-">Recognize this?</h4>
-<p><img src="facebook_chat.jpg" alt="center"></p>
+    <section class="slide-content"><h3 id="close-to-standards">Close to Standards</h3>
+<ul>
+<li><p>No proprietary event system</p>
+</li>
+<li><p>The rendered DOM can be freely manipulated with other tools</p>
+</li>
+<li><p>No extra HTML root elements or data- attributes</p>
+</li>
+<li><p>Plays well with jQuery</p>
+</li>
+</ul>
 </section>
   </div>
   <div class="slide hidden " id="slide-7">
-    <section class="slide-content"><h3 id="the-problem">The Problem</h3>
-<p><img src="mvc-mess.png" alt="center"></p>
+    <section class="slide-content"><h3 id="tooling-friendly">Tooling Friendly</h3>
+<ul>
+<li><p>Create tags with ES6, Typescript, CoffeeScript, Jade, LiveScript or 
+any pre-processor you want</p>
+</li>
+<li><p>Integrate with NPM, CommonJS, AMD, Bower or Component</p>
+</li>
+<li><p>Develop with Gulp, Grunt or Browserify plugins</p>
+</li>
+</ul>
 </section>
   </div>
   <div class="slide hidden " id="slide-8">
-    <section class="slide-content"><h3 id="lessons-from-react">Lessons from React</h3>
+    <section class="slide-content"><h3 id="small-learning-curve">Small Learning Curve</h3>
+<p>Riot has between 10 and 100 times fewer API methods than other UI libraries.</p>
 <ul>
-<li>Always Re-Render Views</li>
-<li>Use a DOM abstraction</li>
-<li>Data flows in one direction</li>
-<li>Components Rule</li>
+<li><p>Less to learn. Fewer books and tutorials to view</p>
+</li>
+<li><p>Less proprietary stuff and more standard stuff</p>
+</li>
 </ul>
 </section>
   </div>
@@ -541,7 +565,88 @@ table td {
 </table>
 </section>
   </div>
-  <div class="slide hidden -" id="slide-10">
+  <div class="slide hidden " id="slide-10">
+    <section class="slide-content"><pre><code class="lang-xml">&lt;todo&gt;
+  &lt;h3&gt;{ opts.title }&lt;/h3&gt;
+
+  &lt;ul&gt;
+    &lt;li each="{ item, i in items }&gt;"{ item }&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;form onsubmit="{ add }"&gt;
+    &lt;input&gt;
+    &lt;button&gt;Add #{ items.length + 1 }&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;style scoped&gt;
+    h3 { font-size: 14px; }
+  &lt;/style&gt;
+
+  &lt;script&gt;
+    this.items = []
+
+    add(e) {
+      var input = e.target[0]
+      this.items.push(input.value)
+      input.value = ''
+    }
+  &lt;/script&gt;
+&lt;/todo&gt;</code></pre>
+</section>
+  </div>
+  <div class="slide hidden -" id="slide-11">
+    <section class="slide-content"><h3 id="example-to-do-application">Example To-Do Application</h3>
+<p><a href="https://muut.github.io/riotjs/demo/">https://muut.github.io/riotjs/demo/</a></p>
+<p><img src="todo.png" alt="todo"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-12">
+    <section class="slide-content"><h3 id="human-readable">Human Readable</h3>
+<p>Custom tags let you build complex views with HTML. Your application might look something like this:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Acme community<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">forum-header</span>/&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">forum-content</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">forum-threads</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">forum-sidebar</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">forum-content</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">forum-footer</span>/&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">riot.mount(<span class="hljs-string">'*'</span>, { api: forum_api })</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-13">
+    <section class="slide-content"><h3 id="before-we-go-further-">Before we go Further...</h3>
+<h4 id="what-is-react-and-what-problem-is-it-trying-to-solve-">What is React and what problem is it trying to solve?</h4>
+<p><img src="react-logo.png" alt="center"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-14">
+    <section class="slide-content"><h4 id="recognize-this-">Recognize this?</h4>
+<p><img src="facebook_chat.jpg" alt="center"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-15">
+    <section class="slide-content"><h3 id="the-problem">The Problem</h3>
+<p><img src="mvc-mess.png" alt="center"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-16">
+    <section class="slide-content"><h3 id="lessons-from-react">Lessons from React</h3>
+<ul>
+<li>Always Re-Render Views</li>
+<li>Use a DOM abstraction</li>
+<li>Data flows in one direction</li>
+<li>Components Rule</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden -" id="slide-17">
     <section class="slide-content"><h3 id="difference-between-riot-and-react">Difference between Riot and React</h3>
 <p>The most significant difference lies in how the UI markup templates are declared:</p>
 <ul>
@@ -556,79 +661,7 @@ HTML (tag) file.</p>
 </ul>
 </section>
   </div>
-  <div class="slide hidden " id="slide-11">
-    <section class="slide-content"><h3 id="why-a-new-ui-library-">Why a new UI Library?</h3>
-<ul>
-<li><p>In a word (well two words), <strong>Custom Tags</strong></p>
-</li>
-<li><p>Want enjoyable syntax</p>
-</li>
-<li><p>HTML syntax is the de facto language of the web and it’s designed for 
-building user interfaces. </p>
-</li>
-<li><p>HTML syntax is explicit, nesting is inherent to the language, and 
-attributes offer a clean way to provide options for custom tags.</p>
-</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden " id="slide-12">
-    <section class="slide-content"><h3 id="virtual-dom">Virtual DOM</h3>
-<ul>
-<li><p>Absolutely the smallest possible amount of DOM updates and reflows</p>
-</li>
-<li><p>One way data flow: updates and unmounts are propagated downwards 
-from parent to children</p>
-</li>
-<li><p>Expressions are pre-compiled and cached for high performance</p>
-</li>
-<li><p>Lifecycle events for more control</p>
-</li>
-<li><p>Server-side rendering of custom tags for universal 
-(isomorphic) applications</p>
-</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden " id="slide-13">
-    <section class="slide-content"><h3 id="close-to-standards">Close to Standards</h3>
-<ul>
-<li><p>No proprietary event system</p>
-</li>
-<li><p>The rendered DOM can be freely manipulated with other tools</p>
-</li>
-<li><p>No extra HTML root elements or data- attributes</p>
-</li>
-<li><p>Plays well with jQuery</p>
-</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden " id="slide-14">
-    <section class="slide-content"><h3 id="tooling-friendly">Tooling Friendly</h3>
-<ul>
-<li><p>Create tags with ES6, Typescript, CoffeeScript, Jade, LiveScript or 
-any pre-processor you want</p>
-</li>
-<li><p>Integrate with NPM, CommonJS, AMD, Bower or Component</p>
-</li>
-<li><p>Develop with Gulp, Grunt or Browserify plugins</p>
-</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden " id="slide-15">
-    <section class="slide-content"><h3 id="small-learning-curve">Small Learning Curve</h3>
-<p>Riot has between 10 and 100 times fewer API methods than other UI libraries.</p>
-<ul>
-<li><p>Less to learn. Fewer books and tutorials to view</p>
-</li>
-<li><p>Less proprietary stuff and more standard stuff</p>
-</li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-16">
+  <div class="slide hidden" id="slide-18">
     <section class="slide-content"><div class="author">
   <h1 class="name">Mike Ward</h1>
     <h3 class="twitter">

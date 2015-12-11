@@ -11,6 +11,9 @@ style: style.css
 ## http://mike-ward.net/talk-riotjs
 
 --
+![collage](collage.png)
+
+--
 ```xml
 <todo>
   <h3>{ opts.title }</h3>
@@ -39,84 +42,6 @@ style: style.css
   </script>
 </todo>
 ```
----
-### Example To-Do Application
-
-https://muut.github.io/riotjs/demo/
-
-![todo](todo.png)
-
---
-### Human Readable
-
-Custom tags let you build complex views with HTML. Your application might look something like this:
-
-```xml
-<body>
-
-  <h1>Acme community</h1>
-
-  <forum-header/>
-
-  <forum-content>
-    <forum-threads/>
-    <forum-sidebar/>
-  </forum-content>
-
-  <forum-footer/>
-
-  <script>riot.mount('*', { api: forum_api })</script>
-</body>
-```
---
-### Before we go Further...
-
-#### What is React and what problem is it trying to solve?
-
-![center](react-logo.png)
-
---
-#### Recognize this?
-
-![center](facebook_chat.jpg)
-
---
-### The Problem
-
-![center](mvc-mess.png)
-
---
-### Lessons from React
-
-- Always Re-Render Views
-- Use a DOM abstraction
-- Data flows in one direction
-- Components Rule
---
-### Size Matters
-
-| Framework	              | Version	| Minified Size |
-|------------------------ | ------- | ------------- |
-| Ember	                  | 1.13.3	| 493.3kb       |
-| Angular	                | 1.4.2	  | 145.5kb       |
-| React	                  | 0.14.1	| 132.6kb       |
-| Web Components Polyfill	| 0.7.5   |	117.1kb       |
-| Polymer	                | 1.0.6	  | 101.2kb       |
-| Riot	                  | 2.3.11	| 18kb          |
-
----
-### Difference between Riot and React
-
-The most significant difference lies in how the UI markup templates are declared:
-
--   In React the UI template markup is baked in your JavaScript source 
-    (using the JSX language extension).
-
--   Riot inverts the React model by putting the markup and logic in an 
-    HTML (tag) file.
-
--   Riot tags are converted to pure JavaScript so browsers can execute them.   
-
 --
 ### Why a new UI Library?
 
@@ -174,3 +99,113 @@ Riot has between 10 and 100 times fewer API methods than other UI libraries.
 -  Less to learn. Fewer books and tutorials to view
 
 -  Less proprietary stuff and more standard stuff
+
+--
+### Size Matters
+
+| Framework	              | Version	| Minified Size |
+|------------------------ | ------- | ------------- |
+| Ember	                  | 1.13.3	| 493.3kb       |
+| Angular	                | 1.4.2	  | 145.5kb       |
+| React	                  | 0.14.1	| 132.6kb       |
+| Web Components Polyfill	| 0.7.5   |	117.1kb       |
+| Polymer	                | 1.0.6	  | 101.2kb       |
+| Riot	                  | 2.3.11	| 18kb          |
+
+--
+```xml
+<todo>
+  <h3>{ opts.title }</h3>
+
+  <ul>
+    <li each="{ item, i in items }>"{ item }</li>
+  </ul>
+
+  <form onsubmit="{ add }">
+    <input>
+    <button>Add #{ items.length + 1 }</button>
+  </form>
+
+  <style scoped>
+    h3 { font-size: 14px; }
+  </style>
+
+  <script>
+    this.items = []
+
+    add(e) {
+      var input = e.target[0]
+      this.items.push(input.value)
+      input.value = ''
+    }
+  </script>
+</todo>
+```
+
+---
+### Example To-Do Application
+
+https://muut.github.io/riotjs/demo/
+
+![todo](todo.png)
+
+--
+### Human Readable
+
+Custom tags let you build complex views with HTML. Your application might look something like this:
+
+```xml
+<body>
+
+  <h1>Acme community</h1>
+
+  <forum-header/>
+
+  <forum-content>
+    <forum-threads/>
+    <forum-sidebar/>
+  </forum-content>
+
+  <forum-footer/>
+
+  <script>riot.mount('*', { api: forum_api })</script>
+</body>
+```
+--
+### Before we go Further...
+
+#### What is React and what problem is it trying to solve?
+
+![center](react-logo.png)
+
+--
+#### Recognize this?
+
+![center](facebook_chat.jpg)
+
+--
+### The Problem
+
+![center](mvc-mess.png)
+
+--
+### Lessons from React
+
+- Always Re-Render Views
+- Use a DOM abstraction
+- Data flows in one direction
+- Components Rule
+
+---
+### Difference between Riot and React
+
+The most significant difference lies in how the UI markup templates are declared:
+
+-   In React the UI template markup is baked in your JavaScript source 
+    (using the JSX language extension).
+
+-   Riot inverts the React model by putting the markup and logic in an 
+    HTML (tag) file.
+
+-   Riot tags are converted to pure JavaScript so browsers can execute them.   
+
