@@ -154,9 +154,8 @@ Riot has between 10 and 100 times fewer API methods than other UI libraries.
 
 Custom tags let you build complex views with HTML. Your application might look something like this:
 
-```xml
+```html
 <body>
-
   <h1>Acme community</h1>
 
   <forum-header/>
