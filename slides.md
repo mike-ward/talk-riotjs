@@ -19,7 +19,7 @@ style: style.css
   <h3>{ opts.title }</h3>
 
   <ul>
-    <li each="{ item, i in items }>"{ item }</li>
+    <li each="{ item, i in items }">{ item }</li>
   </ul>
 
   <form onsubmit="{ add }">
@@ -118,7 +118,7 @@ Riot has between 10 and 100 times fewer API methods than other UI libraries.
   <h3>{ opts.title }</h3>
 
   <ul>
-    <li each="{ item, i in items }>"{ item }</li>
+    <li each="{ item, i in items }">{ item }</li>
   </ul>
 
   <form onsubmit="{ add }">
