@@ -145,7 +145,7 @@ Riot has between 10 and 100 times fewer API methods than other UI libraries.
 ---
 ### Example To-Do Application
 
-https://muut.github.io/riotjs/demo/
+<http://riotjs.com/play/todo/>
 
 ![todo](todo.png)
 
