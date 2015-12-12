@@ -4,8 +4,8 @@
   "description": "A Riot - PostCSS - Webpack startkit from wbkd.io",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "cp ./src/index.html ./build/index.html & webpack -p -d --progress --colors",
-    "dev": "cp ./src/index.html ./build/index.html & webpack-dev-server --hot"
+    "build": "webpack -p -d --progress --colors & cp ./src/index.html ./build/index.html",
+    "dev": "webpack-dev-server --hot & cp ./src/index.html ./build/index.html"
   },
   "author": "Mike Ward",
   "license": "MIT",
