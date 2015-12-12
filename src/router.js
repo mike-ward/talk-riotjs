@@ -19,14 +19,14 @@ class Router {
   }
 
   _handleRoute(view) {
-    if (this._views.indexOf(view) === -1) return riot.route(this._defaultView);
+      if (this._views.indexOf(view) === -1) return riot.route(this._defaultView);
     this._loadView(view);
   }
 
   _loadView(view) {
     if (this._currentView) this._currentView.unmount(true);
     riot.routeState.view = view;
-    this._currentView = riot.mountTo('#riot-app', view)[0];
+    this._currentView = riot.mount('#riot-app', view)[0];
   }
 }
 
