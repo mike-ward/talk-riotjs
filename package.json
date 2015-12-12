@@ -4,7 +4,7 @@
   "description": "A Riot - PostCSS - Webpack startkit from wbkd.io",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack & cp ./src/index.html ./build/index.html",
+    "build": "cp ./src/index.html ./build/index.html & webpack -p -d",
     "dev": "webpack-dev-server --hot & cp ./src/index.html ./build/index.html"
   },
   "author": "Mike Ward",
@@ -14,7 +14,7 @@
     "url": "https://github.com/wbkd/riotjs-startkit.git"
   },
   "devDependencies": {
-    "autoprefixer-core": "6.0.1",
+    "autoprefixer": "6.1.2",
     "babel": "6.3.13",
     "babel-core": "6.3.17",
     "babel-loader": "6.2.0",

@@ -11,4 +11,8 @@ import '../components/itemlist.tag';
       Libero consequuntur neque fuga eos, aliquam id beatae eaque? 
     </p>
   </div>
+  
+  <style scoped>
+    p { max-width: 20em;}
+  </style>
 </projects>
