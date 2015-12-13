@@ -217,14 +217,15 @@ might look something like this:
 #### In-browser compilation
 
 Custom tags need to be transformed to JavaScript so the browser can
-execute them. Do this by setting a `type="riot/tag"` attribute for
-script tags.
+execute them.
+
+Do this by setting a `type="riot/tag"` attribute for script tags.
 
 There's also a command line compiler (more on this in a moment)
 
 --
 
-### &lt;todo&gt; Compiled
+### Compiled &lt;todo&gt;
 
 ``` js
 riot.tag2('todo', '<h3>{opts.title}</h3> ...', '', function(opts) {
@@ -242,15 +243,14 @@ riot.tag2('todo', '<h3>{opts.title}</h3> ...', '', function(opts) {
 
 ### Compiler performance
 
-Compilation phase is basically free and takes no time at all.
+Compilation phase is basically free and takes no time at all
 
 Compiling the `todo` tag 30 times takes 2 milliseconds on a regular
-laptop. If you have a crazy page with 1000 different todo-sized tags,
-the compilation takes around 35ms.
+laptop.
 
-The compiler weights only 3.2KB (1.7K gzipped) so you can safely perform
-client side compilation on production without download or performance or
-issues.
+1000 different todo-sized tags, the compilation takes around 35ms
+
+The compiler weighs only 3.2KB (1.7K gzipped)
 
 --
 
@@ -304,10 +304,10 @@ The most significant difference lies in how the UI markup templates are
 declared:
 
 -   In React the UI template markup is baked in your JavaScript source
-    (using the JSX language extension).
+    (using the JSX language extension)
 
 -   Riot inverts the React model by putting the markup and logic in an
-    HTML (tag) file.
+    HTML (tag) file
 
 -   Riot tags are converted to pure JavaScript so browsers can
     execute them.

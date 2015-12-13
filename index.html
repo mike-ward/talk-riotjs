@@ -642,13 +642,13 @@ might look something like this:</p>
     <section class="slide-content"><h3 id="compiler-">Compiler?</h3>
 <h4 id="in-browser-compilation">In-browser compilation</h4>
 <p>Custom tags need to be transformed to JavaScript so the browser can
-execute them. Do this by setting a <code>type=&quot;riot/tag&quot;</code> attribute for
-script tags.</p>
+execute them.</p>
+<p>Do this by setting a <code>type=&quot;riot/tag&quot;</code> attribute for script tags.</p>
 <p>There&#39;s also a command line compiler (more on this in a moment)</p>
 </section>
   </div>
   <div class="slide hidden " id="slide-15">
-    <section class="slide-content"><h3 id="-lt-todo-gt-compiled">&lt;todo&gt; Compiled</h3>
+    <section class="slide-content"><h3 id="compiled-lt-todo-gt-">Compiled &lt;todo&gt;</h3>
 <pre><code class="lang-js">riot.tag2(<span class="hljs-string">'todo'</span>, <span class="hljs-string">'&lt;h3&gt;{opts.title}&lt;/h3&gt; ...'</span>, <span class="hljs-string">''</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">opts</span>) </span>{
     <span class="hljs-keyword">this</span>.items = []
 
@@ -662,13 +662,11 @@ script tags.</p>
   </div>
   <div class="slide hidden " id="slide-16">
     <section class="slide-content"><h3 id="compiler-performance">Compiler performance</h3>
-<p>Compilation phase is basically free and takes no time at all.</p>
+<p>Compilation phase is basically free and takes no time at all</p>
 <p>Compiling the <code>todo</code> tag 30 times takes 2 milliseconds on a regular
-laptop. If you have a crazy page with 1000 different todo-sized tags,
-the compilation takes around 35ms.</p>
-<p>The compiler weights only 3.2KB (1.7K gzipped) so you can safely perform
-client side compilation on production without download or performance or
-issues.</p>
+laptop.</p>
+<p>1000 different todo-sized tags, the compilation takes around 35ms</p>
+<p>The compiler weighs only 3.2KB (1.7K gzipped)</p>
 </section>
   </div>
   <div class="slide hidden " id="slide-17">
