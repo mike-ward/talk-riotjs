@@ -1,8 +1,8 @@
 title: RIOTJS
 author:
  name: Mike Ward
- twitter: mikeward\_aa
- url: <http://mike-ward.net>
+ twitter: mikeward_aa
+ url: http://mike-ward.net
 output: index.html
 style: style.css
 
