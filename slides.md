@@ -76,7 +76,7 @@ style: style.css
 
 -   Expressions are pre-compiled and cached for high performance
 
--   Lifecycle events for more control
+-   Life-cycle events for more control
 
 -   Server-side rendering of custom tags for universal (isomorphic)
     applications
