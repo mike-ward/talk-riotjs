@@ -413,7 +413,7 @@ table td {
     <section class="slide-content"><h1 id="riot">RIOT</h1>
 <h2 id="a-react-like-user-interface-micro-library">A React-like user interface micro-library</h2>
 <h2 id="-http-mike-ward-net-talk-riotjs-"><a href="http://mike-ward.net/talk-riotjs">http://mike-ward.net/talk-riotjs</a></h2>
-<!-- MDE formating start --></section>
+<!-- MDE --></section>
   </div>
   <div class="slide hidden " id="slide-2">
     <section class="slide-content"><h3 id="choices">Choices</h3>
@@ -580,8 +580,8 @@ might look something like this:</p>
 </tr>
 <tr>
 <td>Riot</td>
-<td>2.3.11</td>
-<td>18kb</td>
+<td>2.3.12</td>
+<td>20kb</td>
 </tr>
 </tbody>
 </table>
@@ -726,7 +726,61 @@ execute them.</p>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-24">
+  <div class="slide hidden " id="slide-24">
+    <section class="slide-content"><h3 id="tag-syntax">Tag Syntax</h3>
+<p>A Riot tag is a combination of layout (HTML) and logic (JavaScript).
+Here are the basic rules:</p>
+<ul>
+<li><p>HTML is defined first and the logic is enclosed inside an optional
+<code>&lt;script&gt;</code> tag</p>
+</li>
+<li><p>Custom tags can be empty, HTML only or JavaScript only</p>
+</li>
+<li><p>All attribute names must be lowercase</p>
+</li>
+<li><p>A shorthand syntax for class names is available:</p>
+<p><code>class={ completed: done }</code></p>
+<p>renders to <code>class=&quot;completed&quot;</code> when the value of done is a true
+value</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-25">
+    <section class="slide-content"><h3 id="tag-styling">Tag Styling</h3>
+<p>You can put a style tag inside. Riot.js automatically takes it out and injects it into <code>&lt;head&gt;</code></p>
+<pre><code class="lang-js">&lt;todo&gt;
+
+  <span class="xml"><span class="hljs-comment">&lt;!-- layout --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>{ opts.title }<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+    <span class="hljs-selector-tag">todo</span> { <span class="hljs-attribute">display</span>: block }
+    <span class="hljs-selector-tag">todo</span> <span class="hljs-selector-tag">h3</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">120%</span> }
+    <span class="hljs-comment">/** other tag specific styles **/</span>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-26">
+    <section class="slide-content"><h3 id="scoped-css">Scoped CSS</h3>
+<p>Scoped CSS is also available.</p>
+<pre><code class="lang-js">&lt;todo&gt;
+
+  <span class="xml"><span class="hljs-comment">&lt;!-- layout --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>{ opts.title }<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+    <span class="hljs-selector-pseudo">:scope</span> { <span class="hljs-attribute">display</span>: block }
+    <span class="hljs-selector-tag">h3</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">120%</span> }
+    <span class="hljs-comment">/** other tag specific styles **/</span>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-27">
     <section class="slide-content"><div class="author">
   <h1 class="name">Mike Ward</h1>
     <h3 class="twitter">

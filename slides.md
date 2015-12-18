@@ -12,7 +12,7 @@ style: style.css
 ## A React-like user interface micro-library
 ## <http://mike-ward.net/talk-riotjs>
 
-<!-- MDE formating start -->
+<!-- MDE -->
 
 --
 
@@ -150,7 +150,7 @@ might look something like this:
 | React                   | 0.14.1  | 132.6kb       |
 | Web Components Polyfill | 0.7.5   | 117.1kb       |
 | Polymer                 | 1.0.6   | 101.2kb       |
-| Riot                    | 2.3.11  | 18kb          |
+| Riot                    | 2.3.12  | 20kb          |
 
 --
 
@@ -312,4 +312,65 @@ declared:
 -   Riot tags are converted to pure JavaScript so browsers can
     execute them.
 
+--
 
+### Tag Syntax
+
+A Riot tag is a combination of layout (HTML) and logic (JavaScript).
+Here are the basic rules:
+
+-   HTML is defined first and the logic is enclosed inside an optional
+    `<script>` tag
+
+-   Custom tags can be empty, HTML only or JavaScript only
+
+-   All attribute names must be lowercase
+
+-   A shorthand syntax for class names is available:
+
+    `class={ completed: done }`
+
+    renders to `class="completed"` when the value of done is a true
+    value
+
+--
+
+### Tag Styling
+
+You can put a style tag inside. Riot.js automatically takes it out and injects it into `<head>`
+
+```js
+<todo>
+
+  <!-- layout -->
+  <h3>{ opts.title }</h3>
+
+  <style>
+    todo { display: block }
+    todo h3 { font-size: 120% }
+    /** other tag specific styles **/
+  </style>
+
+</todo>
+```
+
+--
+
+### Scoped CSS
+
+Scoped CSS is also available.
+
+```js
+<todo>
+
+  <!-- layout -->
+  <h3>{ opts.title }</h3>
+
+  <style scoped>
+    :scope { display: block }
+    h3 { font-size: 120% }
+    /** other tag specific styles **/
+  </style>
+
+</todo>
+```
