@@ -228,7 +228,11 @@ There's also a command line compiler (more on this in a moment)
 ### Compiled &lt;todo&gt;
 
 ``` js
-riot.tag2('todo', '<h3>{opts.title}</h3> ...', '', function(opts) {
+riot.tag2(
+  'todo', 
+  '<h3>{opts.title}</h3> ...', 
+  '', 
+  function(opts) {
     this.items = []
 
     this.add = function(e) {
@@ -236,7 +240,8 @@ riot.tag2('todo', '<h3>{opts.title}</h3> ...', '', function(opts) {
       this.items.push(input.value)
       input.value = ''
     }.bind(this)
-}, '{ }');
+  }, 
+'{ }');
 ```
 
 --
@@ -274,23 +279,63 @@ The compiler weighs only 3.2KB (1.7K gzipped)
 
 --
 
+### Not Predictable
+
+![center](pinball.jpg) 
+
+--
+
 ### A Solution
 
 ![center](data-event-flow.png)
 
 --
 
+### Virtual Dom
+
+![center](virtual-dom.png)
+
+--
+
+### React Component
+
+```js
+var Timer = React.createClass({
+  getInitialState: function() {
+    return {secondsElapsed: 0};
+  },
+  tick: function() {
+    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+  },
+  componentDidMount: function() {
+    this.interval = setInterval(this.tick, 1000);
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
+  render: function() {
+    return (
+      <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
+    );
+  }
+});
+
+ReactDOM.render(<Timer />, mountNode);
+```
+
+---
+
 ### Flux
 
-![center](flux.png)
+![center](fluxiny_basic_flux_architecture.jpg)
 
 --
 
 ### Lessons from React
 
--   Re-Render Views
+-   Render views straight-up
 
--   Use a DOM abstractions
+-   Use a DOM abstraction
 
 -   Data flows in one direction
 
@@ -311,6 +356,12 @@ declared:
 
 -   Riot tags are converted to pure JavaScript so browsers can
     execute them.
+
+--
+
+### RIOT Syntax
+
+![center](syntax-torture.jpg)
 
 --
 

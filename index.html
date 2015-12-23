@@ -649,7 +649,11 @@ execute them.</p>
   </div>
   <div class="slide hidden " id="slide-15">
     <section class="slide-content"><h3 id="compiled-lt-todo-gt-">Compiled &lt;todo&gt;</h3>
-<pre><code class="lang-js">riot.tag2(<span class="hljs-string">'todo'</span>, <span class="hljs-string">'&lt;h3&gt;{opts.title}&lt;/h3&gt; ...'</span>, <span class="hljs-string">''</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">opts</span>) </span>{
+<pre><code class="lang-js">riot.tag2(
+  <span class="hljs-string">'todo'</span>, 
+  <span class="hljs-string">'&lt;h3&gt;{opts.title}&lt;/h3&gt; ...'</span>, 
+  <span class="hljs-string">''</span>, 
+  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">opts</span>) </span>{
     <span class="hljs-keyword">this</span>.items = []
 
     <span class="hljs-keyword">this</span>.add = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
@@ -657,7 +661,8 @@ execute them.</p>
       <span class="hljs-keyword">this</span>.items.push(input.value)
       input.value = <span class="hljs-string">''</span>
     }.bind(<span class="hljs-keyword">this</span>)
-}, <span class="hljs-string">'{ }'</span>);</code></pre>
+  }, 
+<span class="hljs-string">'{ }'</span>);</code></pre>
 </section>
   </div>
   <div class="slide hidden " id="slide-16">
@@ -686,21 +691,56 @@ laptop.</p>
 </section>
   </div>
   <div class="slide hidden " id="slide-20">
+    <section class="slide-content"><h3 id="not-predictable">Not Predictable</h3>
+<p><img src="pinball.jpg" alt="center"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-21">
     <section class="slide-content"><h3 id="a-solution">A Solution</h3>
 <p><img src="data-event-flow.png" alt="center"></p>
 </section>
   </div>
-  <div class="slide hidden " id="slide-21">
-    <section class="slide-content"><h3 id="flux">Flux</h3>
-<p><img src="flux.png" alt="center"></p>
+  <div class="slide hidden " id="slide-22">
+    <section class="slide-content"><h3 id="virtual-dom">Virtual Dom</h3>
+<p><img src="virtual-dom.png" alt="center"></p>
 </section>
   </div>
-  <div class="slide hidden " id="slide-22">
+  <div class="slide hidden " id="slide-23">
+    <section class="slide-content"><h3 id="react-component">React Component</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Timer = React.createClass({
+  getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {secondsElapsed: <span class="hljs-number">0</span>};
+  },
+  tick: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.setState({secondsElapsed: <span class="hljs-keyword">this</span>.state.secondsElapsed + <span class="hljs-number">1</span>});
+  },
+  componentDidMount: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.interval = setInterval(<span class="hljs-keyword">this</span>.tick, <span class="hljs-number">1000</span>);
+  },
+  componentWillUnmount: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    clearInterval(<span class="hljs-keyword">this</span>.interval);
+  },
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Seconds Elapsed: {this.state.secondsElapsed}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    )</span>;
+  }
+});
+
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Timer</span> /&gt;</span>, mountNode);</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden -" id="slide-24">
+    <section class="slide-content"><h3 id="flux">Flux</h3>
+<p><img src="fluxiny_basic_flux_architecture.jpg" alt="center"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-25">
     <section class="slide-content"><h3 id="lessons-from-react">Lessons from React</h3>
 <ul>
-<li><p>Re-Render Views</p>
+<li><p>Render views straight-up</p>
 </li>
-<li><p>Use a DOM abstractions</p>
+<li><p>Use a DOM abstraction</p>
 </li>
 <li><p>Data flows in one direction</p>
 </li>
@@ -709,7 +749,7 @@ laptop.</p>
 </ul>
 </section>
   </div>
-  <div class="slide hidden " id="slide-23">
+  <div class="slide hidden " id="slide-26">
     <section class="slide-content"><h3 id="difference-between-riot-and-react">Difference between Riot and React</h3>
 <p>The most significant difference lies in how the UI markup templates are
 declared:</p>
@@ -726,7 +766,12 @@ execute them.</p>
 </ul>
 </section>
   </div>
-  <div class="slide hidden " id="slide-24">
+  <div class="slide hidden " id="slide-27">
+    <section class="slide-content"><h3 id="riot-syntax">RIOT Syntax</h3>
+<p><img src="syntax-torture.jpg" alt="center"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-28">
     <section class="slide-content"><h3 id="tag-syntax">Tag Syntax</h3>
 <p>A Riot tag is a combination of layout (HTML) and logic (JavaScript).
 Here are the basic rules:</p>
@@ -746,7 +791,7 @@ value</p>
 </ul>
 </section>
   </div>
-  <div class="slide hidden " id="slide-25">
+  <div class="slide hidden " id="slide-29">
     <section class="slide-content"><h3 id="tag-styling">Tag Styling</h3>
 <p>You can put a style tag inside. Riot.js automatically takes it out and injects it into <code>&lt;head&gt;</code></p>
 <pre><code class="lang-js">&lt;todo&gt;
@@ -763,7 +808,7 @@ value</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-26">
+  <div class="slide hidden " id="slide-30">
     <section class="slide-content"><h3 id="scoped-css">Scoped CSS</h3>
 <p>Scoped CSS is also available.</p>
 <pre><code class="lang-js">&lt;todo&gt;
@@ -780,7 +825,7 @@ value</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-27">
+  <div class="slide hidden" id="slide-31">
     <section class="slide-content"><div class="author">
   <h1 class="name">Mike Ward</h1>
     <h3 class="twitter">
