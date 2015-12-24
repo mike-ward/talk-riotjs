@@ -61,7 +61,6 @@ style: style.css
 
 ### Why a new UI Library?
 
-
 #### Custom Tags
 
 > A custom tag glues relevant HTML and JavaScript together forming a
@@ -364,7 +363,7 @@ declared:
 
 -   Riot inverts the React model by putting the markup and logic in an
     HTML (tag) file
-    
+
 ![center](difference.jpg)
 
 --
@@ -436,3 +435,285 @@ Scoped CSS is also available.
 
 </todo>
 ```
+
+--
+
+### Pre-Proccesor
+
+You can specify a pre-processor with type attribute
+
+``` js
+<my-tag>
+  <script type="coffee">
+    # your coffeescript logic goes here
+  </script>
+</my-tag>
+```
+
+Other options: “coffee”, “typescript”, “es6” and “none”
+
+--
+
+### Mounting
+
+Once a tag is created you can mount it on the page as follows:
+
+``` html
+<body>
+
+  <!-- place the custom tag anywhere inside the body -->
+  <todo></todo>
+
+  <!-- include riot.js -->
+  <script src="riot.min.js"></script>
+
+  <!-- include the tag -->
+  <script src="todo.js" type="riot/tag"></script>
+
+  <!-- mount the tag -->
+  <script>riot.mount('todo')</script>
+
+</body>
+```
+
+------------------------------------------------------------------------
+
+### Examples of Mounting
+
+``` js
+// mount all custom tags on the page
+riot.mount('*')
+
+// mount an element with a specific id
+riot.mount('#my-element')
+
+// mount selected elements
+riot.mount('todo, forum, comments')
+```
+
+--
+
+### Life Cycle Events
+
+``` js
+this.on('before-mount', function() {
+  // before the tag is mounted
+})
+this.on('mount', function() {
+  // right after the tag is mounted on the page
+})
+this.on('update', function() {
+  // allows recalculation of context data before the update
+})
+this.on('updated', function() {
+  // right after the tag template is updated
+})
+this.on('before-unmount', function() {
+  // before the tag is removed
+})
+this.on('unmount', function() {
+  // when the tag is removed from the page
+})
+// curious about all events ?
+this.on('all', function(eventName) {
+  console.info(eventName)
+})
+```
+
+--
+
+### Life Cycle Events
+
+``` js
+<example-tag>
+  <p id="findMe">Do I even Exist?</p>
+
+  <script>
+  var test1 = document.getElementById('findMe')
+  console.log('test1', test1)  // Fails
+
+  this.on('update', function(){
+    var test2 = document.getElementById('findMe')
+    console.log('test2', test2) // Succeeds, fires on every update
+  })
+
+  this.on('mount', function(){
+    var test3 = document.getElementById('findMe')
+    console.log('test3', test3) // Succeeds, fires once (per mount)
+  })
+  </script>
+</example-tag>
+```
+
+--
+
+### Options
+
+``` js
+<script>
+riot.mount('todo', { title: 'My TODO app', items: [ ... ] })
+</script>
+```
+
+Inside the tag the options can be referenced with the `opts`
+
+``` js
+<my-tag>
+
+  <!-- Options in HTML -->
+  <h3>{ opts.title }</h3>
+
+  // Options in JavaScript
+  var title = opts.title
+
+</my-tag>
+```
+
+--
+
+### Expressions
+
+HTML can be mixed with expressions that are enclosed in curly braces
+
+``` js
+{ /* my_expression goes here */ }
+```
+
+Expressions can set attributes or nested text nodes
+
+``` js
+<h3 id={ /* attribute_expression */ }>
+  { /* nested_expression */ }
+</h3>
+```
+
+Expressions are 100% JavaScript
+
+``` js
+{ title || 'Untitled' }
+{ results ? 'ready' : 'loading' }
+{ new Date() }
+{ message.length > 140 && 'Message is too long' }
+{ Math.round(rating) }
+```
+
+--
+
+### Boolean Attributes
+
+Boolean attributes (checked, selected etc..) are ignored when the
+expression value is falsy
+
+``` js
+<input checked={ null }> becomes <input>.
+```
+
+W3C states a boolean property is true if the attribute is present
+
+The following expression does not work
+
+``` js
+<input type="checkbox" { true ? 'checked' : ''}>
+```
+
+--
+
+### Class Shorthand
+
+Riot has a special syntax for CSS class names
+
+``` js
+<p class={ foo: true, bar: 0, baz: new Date(), zorro: 'a value' }>
+</p>
+```
+
+Property names with truthy values are appended to class names
+
+--
+
+### Transclusion
+
+> The inclusion of part of one hypertext document in another one by
+> means of reference rather than copying
+
+``` js
+<my-tag>
+  <p>Hello <yield/></p>
+  this.text = 'world'
+</my-tag>
+```
+
+Usage
+
+``` js
+<my-tag>
+  <b>{ text }</b>
+</my-tag>
+```
+
+Result
+
+``` js
+<my-tag>
+  <p>Hello <b>world</b><p>
+</my-tag>
+```
+
+--
+
+### Multi-transclusion
+
+The `<yield>` tag also provides a slot mechanism that allows you to
+inject html contents on specific slots in the template
+
+For example using the following riot tag `my-other-post`
+
+```js
+<my-other-post>
+  <article>
+    <h1>{ opts.title }</h1>
+    <h2><yield from="summary"/></h2>
+    <div>
+      <yield from="content"/>
+    </div>
+  </article>
+</my-other-post>
+```
+
+--
+
+### Multi-transclusion (usage)
+
+```js
+<my-other-post title="What a great title">
+  <yield to="summary">
+    My beautiful post is just awesome
+  </yield>
+  <yield to="content">
+    <p>And the next paragraph describes just how awesome it is</p>
+    <p>Very</p>
+  </yield>
+</my-other-post>
+```
+
+--
+
+### Loops
+
+```js
+<todo>
+  <ul>
+    <li each={ items } class={ completed: done }>
+      <input type="checkbox" checked={ done }> { title }
+    </li>
+  </ul>
+
+  this.items = [
+    { title: 'First item', done: true },
+    { title: 'Second item' },
+    { title: 'Third item' }
+  ]
+</todo>
+```
+
+Element with the `each` attribute repeated for all items in array

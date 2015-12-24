@@ -355,7 +355,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   font-weight: bold;
 }
 
-pre { font-size: 90%;  background: #efefef; }
+pre { font-size: 90%;  background: #efefef; padding: 1pc; }
 code { background: #efefef; }
 
 .slide-content {
@@ -853,7 +853,216 @@ injects it into <code>&lt;head&gt;</code></p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden" id="slide-33">
+  <div class="slide hidden " id="slide-33">
+    <section class="slide-content"><h3 id="pre-proccesor">Pre-Proccesor</h3>
+<p>You can specify a pre-processor with type attribute</p>
+<pre><code class="lang-js">&lt;my-tag&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"coffee"</span>&gt;</span><span class="undefined">
+    # your coffeescript logic goes here
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
+<p>Other options: “coffee”, “typescript”, “es6” and “none”</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-34">
+    <section class="slide-content"><h3 id="mounting">Mounting</h3>
+<p>Once a tag is created you can mount it on the page as follows:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- place the custom tag anywhere inside the body --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">todo</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- include riot.js --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"riot.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- include the tag --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"todo.js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"riot/tag"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- mount the tag --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">riot.mount(<span class="hljs-string">'todo'</span>)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden ----------------------------------------------------------------------" id="slide-35">
+    <section class="slide-content"><h3 id="examples-of-mounting">Examples of Mounting</h3>
+<pre><code class="lang-js"><span class="hljs-comment">// mount all custom tags on the page</span>
+riot.mount(<span class="hljs-string">'*'</span>)
+
+<span class="hljs-comment">// mount an element with a specific id</span>
+riot.mount(<span class="hljs-string">'#my-element'</span>)
+
+<span class="hljs-comment">// mount selected elements</span>
+riot.mount(<span class="hljs-string">'todo, forum, comments'</span>)</code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-36">
+    <section class="slide-content"><h3 id="life-cycle-events">Life Cycle Events</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">this</span>.on(<span class="hljs-string">'before-mount'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// before the tag is mounted</span>
+})
+<span class="hljs-keyword">this</span>.on(<span class="hljs-string">'mount'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// right after the tag is mounted on the page</span>
+})
+<span class="hljs-keyword">this</span>.on(<span class="hljs-string">'update'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// allows recalculation of context data before the update</span>
+})
+<span class="hljs-keyword">this</span>.on(<span class="hljs-string">'updated'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// right after the tag template is updated</span>
+})
+<span class="hljs-keyword">this</span>.on(<span class="hljs-string">'before-unmount'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// before the tag is removed</span>
+})
+<span class="hljs-keyword">this</span>.on(<span class="hljs-string">'unmount'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// when the tag is removed from the page</span>
+})
+<span class="hljs-comment">// curious about all events ?</span>
+<span class="hljs-keyword">this</span>.on(<span class="hljs-string">'all'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">eventName</span>) </span>{
+  <span class="hljs-built_in">console</span>.info(eventName)
+})</code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-37">
+    <section class="slide-content"><h3 id="life-cycle-events">Life Cycle Events</h3>
+<pre><code class="lang-js">&lt;example-tag&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"findMe"</span>&gt;</span>Do I even Exist?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">var</span> test1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'findMe'</span>)
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'test1'</span>, test1)  <span class="hljs-comment">// Fails</span>
+
+  <span class="hljs-keyword">this</span>.on(<span class="hljs-string">'update'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> test2 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'findMe'</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'test2'</span>, test2) <span class="hljs-comment">// Succeeds, fires on every update</span>
+  })
+
+  <span class="hljs-keyword">this</span>.on(<span class="hljs-string">'mount'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> test3 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'findMe'</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'test3'</span>, test3) <span class="hljs-comment">// Succeeds, fires once (per mount)</span>
+  })
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">example-tag</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-38">
+    <section class="slide-content"><h3 id="options">Options</h3>
+<pre><code class="lang-js">&lt;script&gt;
+riot.mount(<span class="hljs-string">'todo'</span>, { title: <span class="hljs-string">'My TODO app'</span>, items: [ ... ] })
+&lt;<span class="hljs-regexp">/script&gt;</span></code></pre>
+<p>Inside the tag the options can be referenced with the <code>opts</code></p>
+<pre><code class="lang-js">&lt;my-tag&gt;
+
+  <span class="xml"><span class="hljs-comment">&lt;!-- Options in HTML --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>{ opts.title }<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+  // Options in JavaScript
+  var title = opts.title
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-39">
+    <section class="slide-content"><h3 id="expressions">Expressions</h3>
+<p>HTML can be mixed with expressions that are enclosed in curly braces</p>
+<pre><code class="lang-js">{ <span class="hljs-comment">/* my_expression goes here */</span> }</code></pre>
+<p>Expressions can set attributes or nested text nodes</p>
+<pre><code class="lang-js">&lt;h3 id={ <span class="hljs-comment">/* attribute_expression */</span> }&gt;
+  { <span class="hljs-comment">/* nested_expression */</span> }
+&lt;<span class="hljs-regexp">/h3&gt;</span></code></pre>
+<p>Expressions are 100% JavaScript</p>
+<pre><code class="lang-js">{ title || <span class="hljs-string">'Untitled'</span> }
+{ results ? <span class="hljs-string">'ready'</span> : <span class="hljs-string">'loading'</span> }
+{ <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() }
+{ message.length &gt; <span class="hljs-number">140</span> &amp;&amp; <span class="hljs-string">'Message is too long'</span> }
+{ <span class="hljs-built_in">Math</span>.round(rating) }</code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-40">
+    <section class="slide-content"><h3 id="boolean-attributes">Boolean Attributes</h3>
+<p>Boolean attributes (checked, selected etc..) are ignored when the
+expression value is falsy</p>
+<pre><code class="lang-js">&lt;input checked={ <span class="hljs-literal">null</span> }&gt; becomes &lt;input&gt;.</code></pre>
+<p>W3C states a boolean property is true if the attribute is present</p>
+<p>The following expression does not work</p>
+<pre><code class="lang-js">&lt;input type=<span class="hljs-string">"checkbox"</span> { <span class="hljs-literal">true</span> ? <span class="hljs-string">'checked'</span> : <span class="hljs-string">''</span>}&gt;</code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-41">
+    <section class="slide-content"><h3 id="class-shorthand">Class Shorthand</h3>
+<p>Riot has a special syntax for CSS class names</p>
+<pre><code class="lang-js">&lt;p <span class="hljs-class"><span class="hljs-keyword">class</span></span>={ foo: <span class="hljs-literal">true</span>, bar: <span class="hljs-number">0</span>, baz: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(), zorro: <span class="hljs-string">'a value'</span> }&gt;
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></code></pre>
+<p>Property names with truthy values are appended to class names</p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-42">
+    <section class="slide-content"><h3 id="transclusion">Transclusion</h3>
+<blockquote>
+<p>The inclusion of part of one hypertext document in another one by
+means of reference rather than copying</p>
+</blockquote>
+<pre><code class="lang-js">&lt;my-tag&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello <span class="hljs-tag">&lt;<span class="hljs-name">yield</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  this.text = 'world'
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
+<p>Usage</p>
+<pre><code class="lang-js">&lt;my-tag&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>{ text }<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
+<p>Result</p>
+<pre><code class="lang-js">&lt;my-tag&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Hello <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>world<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-43">
+    <section class="slide-content"><h3 id="multi-transclusion">Multi-transclusion</h3>
+<p>The <code>&lt;yield&gt;</code> tag also provides a slot mechanism that allows you to
+inject html contents on specific slots in the template</p>
+<p>For example using the following riot tag <code>my-other-post</code></p>
+<pre><code class="lang-js">&lt;my-other-post&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">article</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{ opts.title }<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">yield</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"summary"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">yield</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"content"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-other-post</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-44">
+    <section class="slide-content"><h3 id="multi-transclusion-usage-">Multi-transclusion (usage)</h3>
+<pre><code class="lang-js">&lt;my-other-post title=<span class="hljs-string">"What a great title"</span>&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">yield</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"summary"</span>&gt;</span>
+    My beautiful post is just awesome
+  <span class="hljs-tag">&lt;/<span class="hljs-name">yield</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">yield</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"content"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>And the next paragraph describes just how awesome it is<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Very<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">yield</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-other-post</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-45">
+    <section class="slide-content"><h3 id="loops">Loops</h3>
+<pre><code class="lang-js">&lt;todo&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">each</span>=<span class="hljs-string">{</span> <span class="hljs-attr">items</span> } <span class="hljs-attr">class</span>=<span class="hljs-string">{</span> <span class="hljs-attr">completed:</span> <span class="hljs-attr">done</span> }&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">{</span> <span class="hljs-attr">done</span> }&gt;</span> { title }
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+  this.items = [
+    { title: 'First item', done: true },
+    { title: 'Second item' },
+    { title: 'Third item' }
+  ]
+<span class="hljs-tag">&lt;/<span class="hljs-name">todo</span>&gt;</span></span></code></pre>
+<p>Element with the <code>each</code> attribute repeated for all items in array</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-46">
     <section class="slide-content"><div class="author">
   <h1 class="name">Mike Ward</h1>
     <h3 class="twitter">
