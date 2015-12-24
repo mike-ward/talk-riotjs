@@ -53,17 +53,46 @@ style: style.css
 
 --
 
+### How I Felt
+
+![center](singing.jpg)
+
+-- why
+
 ### Why a new UI Library?
 
--   In a word (well two words), **Custom Tags**
 
--   Wanted enjoyable syntax
+#### Custom Tags
 
--   HTML syntax is the de facto language of the web and it’s designed
-    for building user interfaces.
+> A custom tag glues relevant HTML and JavaScript together forming a
+> reusable component.
 
--   HTML syntax is explicit, nesting is inherent to the language, and
-    attributes offer a clean way to provide options for custom tags.
+> Think React + Polymer but with enjoyable syntax and a small learning
+> curve.
+
+-- confused
+
+### Human Readable
+
+Custom tags let you build complex views with HTML
+
+``` html
+<body>
+
+  <h1>Acme community</h1>
+
+  <forum-header/>
+
+  <forum-content>
+    <forum-threads/>
+    <forum-sidebar/>
+  </forum-content>
+
+  <forum-footer/>
+
+  <script>riot.mount('*', { api: forum_api })</script>
+</body>
+```
 
 --
 
@@ -100,11 +129,11 @@ style: style.css
 -   Create tags with ES6, Typescript, CoffeeScript, Jade, LiveScript or
     any pre-processor you want
 
--   Integrate with NPM, CommonJS, AMD, Bower or Component
+-   Integrate with NPM, CommonJS, AMD, Bower...
 
--   Develop with Gulp, Grunt or Browserify plugins
+-   Develop with Gulp, Grunt, Browserify, WebPack...
 
---
+-- learning-curve
 
 ### Small Learning Curve
 
@@ -115,31 +144,7 @@ libraries.
 
 -   Less proprietary stuff and more standard stuff
 
---
-
-### Human Readable
-
-Custom tags let you build complex views with HTML. Your application
-might look something like this:
-
-``` html
-<body>
-  <h1>Acme community</h1>
-
-  <forum-header/>
-
-  <forum-content>
-    <forum-threads/>
-    <forum-sidebar/>
-  </forum-content>
-
-  <forum-footer/>
-
-  <script>riot.mount('*', { api: forum_api })</script>
-</body>
-```
-
---
+-- cloud-download
 
 ### Size
 
@@ -281,7 +286,7 @@ The compiler weighs only 3.2KB (1.7K gzipped)
 
 ### Not Predictable
 
-![center](pinball.jpg) 
+![center](pinball.jpg)
 
 --
 
@@ -299,7 +304,7 @@ The compiler weighs only 3.2KB (1.7K gzipped)
 
 ### React Component
 
-```js
+``` js
 var Timer = React.createClass({
   getInitialState: function() {
     return {secondsElapsed: 0};
@@ -323,13 +328,13 @@ var Timer = React.createClass({
 ReactDOM.render(<Timer />, mountNode);
 ```
 
----
+--
 
 ### Flux
 
 ![center](fluxiny_basic_flux_architecture.jpg)
 
---
+-- lessons-learned
 
 ### Lessons from React
 
@@ -388,9 +393,10 @@ Here are the basic rules:
 
 ### Tag Styling
 
-You can put a style tag inside. Riot.js automatically takes it out and injects it into `<head>`
+You can put a style tag inside. Riot.js automatically takes it out and
+injects it into `<head>`
 
-```js
+``` js
 <todo>
 
   <!-- layout -->
@@ -411,7 +417,7 @@ You can put a style tag inside. Riot.js automatically takes it out and injects i
 
 Scoped CSS is also available.
 
-```js
+``` js
 <todo>
 
   <!-- layout -->

@@ -45,3 +45,26 @@ table th, table td {
 table td {
   background-color: transparent;
 }
+
+.why {
+  background: url('why.png') no-repeat;
+}
+
+.confused {
+  background: url('confused.jpg') no-repeat right;
+}
+
+.learning-curve {
+  background-image: url('learning-curve.jpg');
+  background-size: cover;
+}
+
+.cloud-download {
+  background: url('cloud-download.png');
+  background-size: cover;
+}
+
+.lessons-learned {
+  background-image: url('lessons-learned.jpg');
+  background-size: cover;
+}
