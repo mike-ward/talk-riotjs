@@ -296,6 +296,12 @@ The compiler weighs only 3.2KB (1.7K gzipped)
 
 --
 
+### But won't this be...
+
+![center](slow.png)
+
+--
+
 ### Virtual Dom
 
 ![center](virtual-dom.png)
@@ -358,9 +364,8 @@ declared:
 
 -   Riot inverts the React model by putting the markup and logic in an
     HTML (tag) file
-
--   Riot tags are converted to pure JavaScript so browsers can
-    execute them.
+    
+![center](difference.jpg)
 
 --
 
