@@ -676,7 +676,8 @@ execute them.</p>
 <pre><code class="lang-js">riot.tag2(
   <span class="hljs-string">'todo'</span>, 
   <span class="hljs-string">'&lt;h3&gt;{opts.title}&lt;/h3&gt; ...'</span>, 
-  <span class="hljs-string">''</span>, 
+  <span class="hljs-string">'todo h3,[riot-tag="todo"] h3 { font-size: 14px; }'</span>,
+  <span class="hljs-string">''</span>,  
   <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">opts</span>) </span>{
     <span class="hljs-keyword">this</span>.items = []
 

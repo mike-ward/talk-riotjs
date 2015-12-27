@@ -235,7 +235,8 @@ There's also a command line compiler (more on this in a moment)
 riot.tag2(
   'todo', 
   '<h3>{opts.title}</h3> ...', 
-  '', 
+  'todo h3,[riot-tag="todo"] h3 { font-size: 14px; }',
+  '',  
   function(opts) {
     this.items = []
 
@@ -717,3 +718,4 @@ For example using the following riot tag `my-other-post`
 ```
 
 Element with the `each` attribute repeated for all items in array
+
