@@ -225,7 +225,7 @@ execute them.
 
 Do this by setting a `type="riot/tag"` attribute for script tags.
 
-There's also a command line compiler (more on this in a moment)
+There's also a command line compiler
 
 --
 
@@ -296,18 +296,6 @@ The compiler weighs only 3.2KB (1.7K gzipped)
 
 --
 
-### But won't this be...
-
-![center](slow.png)
-
---
-
-### Virtual Dom
-
-![center](virtual-dom.png)
-
---
-
 ### React Component
 
 ``` js
@@ -333,6 +321,18 @@ var Timer = React.createClass({
 
 ReactDOM.render(<Timer />, mountNode);
 ```
+
+--
+
+### But won't this be...
+
+![center](slow.png)
+
+--
+
+### Virtual DOM
+
+![center](virtual-dom.png)
 
 --
 
@@ -391,7 +391,7 @@ Here are the basic rules:
 
     `class={ completed: done }`
 
-    renders to `class="completed"` when the value of done is a true
+    renders to `class="completed"` when the value of `done` is a true
     value
 
 --
@@ -457,7 +457,7 @@ Other options: “coffee”, “typescript”, “es6” and “none”
 
 ### Mounting
 
-Once a tag is created you can mount it on the page as follows:
+Once a tag is defined you can mount it on the page as follows:
 
 ``` html
 <body>
@@ -556,7 +556,7 @@ riot.mount('todo', { title: 'My TODO app', items: [ ... ] })
 </script>
 ```
 
-Inside the tag the options can be referenced with the `opts`
+Inside the tag the options can be referenced with `opts`
 
 ``` js
 <my-tag>
@@ -669,7 +669,7 @@ inject html contents on specific slots in the template
 
 For example using the following riot tag `my-other-post`
 
-```js
+``` js
 <my-other-post>
   <article>
     <h1>{ opts.title }</h1>
@@ -685,7 +685,7 @@ For example using the following riot tag `my-other-post`
 
 ### Multi-transclusion (usage)
 
-```js
+``` js
 <my-other-post title="What a great title">
   <yield to="summary">
     My beautiful post is just awesome
@@ -701,7 +701,7 @@ For example using the following riot tag `my-other-post`
 
 ### Loops
 
-```js
+``` js
 <todo>
   <ul>
     <li each={ items } class={ completed: done }>
@@ -718,4 +718,74 @@ For example using the following riot tag `my-other-post`
 ```
 
 Element with the `each` attribute repeated for all items in array
+
+--
+
+### Non-object arrays
+
+The array elements need not be objects. They can be strings or numbers
+as well. Use the `{ name, i in items }`
+
+``` js
+<my-tag>
+  <p each="{ name, i in arr }">{ i }: { name }</p>
+
+  this.arr = [ true, 110, Math.random(), 'fourth']
+</my-tag>
+```
+
+--
+
+### Object loops
+
+``` js
+<my-tag>
+  <p each="{ name, value in obj }">{ name } = { value }</p>
+
+  this.obj = {
+    key1: 'value1',
+    key2: 1110.8900,
+    key3: Math.random()
+  }
+</my-tag>
+```
+
+*Object loops are not recommended*
+
+--
+
+### Other Stuff
+
+-   Observable
+
+-   Routing
+
+But first ... **An Example**
+
+--
+
+### Example
+
+<https://github.com/mike-ward/talk-riotjs>
+
+-   Routers and observables
+
+-   Tooling (Webpack and NPM)
+
+-   My lame attempt at an iTunes browser
+
+-- online-resources
+
+### Resources
+
+-   [Riot Control](https://github.com/jimsparkman/RiotControl)
+
+-   [Material UI](http://kysonic.github.io/riot-mui/)
+
+-   [Riot Bootstrap](http://cognitom.github.io/riot-bootstrap/)
+
+-   [RiotGear](https://riotgear.js.org/)
+
+-   [WindyTy.com](http://windyty.com)
+
 

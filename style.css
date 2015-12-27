@@ -68,3 +68,8 @@ table td {
   background-image: url('lessons-learned.jpg');
   background-size: cover;
 }
+
+.online-resources {
+  background-image: url('online-resources.jpg');
+  background-size: cover;
+}

@@ -426,6 +426,11 @@ table td {
   background-size: cover;
 }
 
+.online-resources {
+  background-image: url('online-resources.jpg');
+  background-size: cover;
+}
+
   </style>
 </head>
 <body>
@@ -668,7 +673,7 @@ libraries.</p>
 <p>Custom tags need to be transformed to JavaScript so the browser can
 execute them.</p>
 <p>Do this by setting a <code>type=&quot;riot/tag&quot;</code> attribute for script tags.</p>
-<p>There&#39;s also a command line compiler (more on this in a moment)</p>
+<p>There&#39;s also a command line compiler</p>
 </section>
   </div>
   <div class="slide hidden " id="slide-16">
@@ -726,16 +731,6 @@ laptop.</p>
 </section>
   </div>
   <div class="slide hidden " id="slide-23">
-    <section class="slide-content"><h3 id="but-won-t-this-be-">But won&#39;t this be...</h3>
-<p><img src="slow.png" alt="center"></p>
-</section>
-  </div>
-  <div class="slide hidden " id="slide-24">
-    <section class="slide-content"><h3 id="virtual-dom">Virtual Dom</h3>
-<p><img src="virtual-dom.png" alt="center"></p>
-</section>
-  </div>
-  <div class="slide hidden " id="slide-25">
     <section class="slide-content"><h3 id="react-component">React Component</h3>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> Timer = React.createClass({
   getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -758,6 +753,16 @@ laptop.</p>
 });
 
 ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Timer</span> /&gt;</span>, mountNode);</span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-24">
+    <section class="slide-content"><h3 id="but-won-t-this-be-">But won&#39;t this be...</h3>
+<p><img src="slow.png" alt="center"></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-25">
+    <section class="slide-content"><h3 id="virtual-dom">Virtual DOM</h3>
+<p><img src="virtual-dom.png" alt="center"></p>
 </section>
   </div>
   <div class="slide hidden " id="slide-26">
@@ -813,7 +818,7 @@ Here are the basic rules:</p>
 </li>
 <li><p>A shorthand syntax for class names is available:</p>
 <p><code>class={ completed: done }</code></p>
-<p>renders to <code>class=&quot;completed&quot;</code> when the value of done is a true
+<p>renders to <code>class=&quot;completed&quot;</code> when the value of <code>done</code> is a true
 value</p>
 </li>
 </ul>
@@ -867,7 +872,7 @@ injects it into <code>&lt;head&gt;</code></p>
   </div>
   <div class="slide hidden " id="slide-34">
     <section class="slide-content"><h3 id="mounting">Mounting</h3>
-<p>Once a tag is created you can mount it on the page as follows:</p>
+<p>Once a tag is defined you can mount it on the page as follows:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
 
   <span class="hljs-comment">&lt;!-- place the custom tag anywhere inside the body --&gt;</span>
@@ -950,7 +955,7 @@ riot.mount(<span class="hljs-string">'todo, forum, comments'</span>)</code></pre
 <pre><code class="lang-js">&lt;script&gt;
 riot.mount(<span class="hljs-string">'todo'</span>, { title: <span class="hljs-string">'My TODO app'</span>, items: [ ... ] })
 &lt;<span class="hljs-regexp">/script&gt;</span></code></pre>
-<p>Inside the tag the options can be referenced with the <code>opts</code></p>
+<p>Inside the tag the options can be referenced with <code>opts</code></p>
 <pre><code class="lang-js">&lt;my-tag&gt;
 
   <span class="xml"><span class="hljs-comment">&lt;!-- Options in HTML --&gt;</span>
@@ -1063,7 +1068,72 @@ inject html contents on specific slots in the template</p>
 <p>Element with the <code>each</code> attribute repeated for all items in array</p>
 </section>
   </div>
-  <div class="slide hidden" id="slide-46">
+  <div class="slide hidden " id="slide-46">
+    <section class="slide-content"><h3 id="non-object-arrays">Non-object arrays</h3>
+<p>The array elements need not be objects. They can be strings or numbers
+as well. Use the <code>{ name, i in items }</code></p>
+<pre><code class="lang-js">&lt;my-tag&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">each</span>=<span class="hljs-string">"{ name, i in arr }"</span>&gt;</span>{ i }: { name }<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  this.arr = [ true, 110, Math.random(), 'fourth']
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-47">
+    <section class="slide-content"><h3 id="object-loops">Object loops</h3>
+<pre><code class="lang-js">&lt;my-tag&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">each</span>=<span class="hljs-string">"{ name, value in obj }"</span>&gt;</span>{ name } = { value }<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  this.obj = {
+    key1: 'value1',
+    key2: 1110.8900,
+    key3: Math.random()
+  }
+<span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
+<p><em>Object loops are not recommended</em></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-48">
+    <section class="slide-content"><h3 id="other-stuff">Other Stuff</h3>
+<ul>
+<li><p>Observable</p>
+</li>
+<li><p>Routing</p>
+</li>
+</ul>
+<p>But first ... <strong>An Example</strong></p>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-49">
+    <section class="slide-content"><h3 id="example">Example</h3>
+<p><a href="https://github.com/mike-ward/talk-riotjs">https://github.com/mike-ward/talk-riotjs</a></p>
+<ul>
+<li><p>Routers and observables</p>
+</li>
+<li><p>Tooling (Webpack and NPM)</p>
+</li>
+<li><p>My lame attempt at an iTunes browser</p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden  online-resources" id="slide-50">
+    <section class="slide-content"><h3 id="resources">Resources</h3>
+<ul>
+<li><p><a href="https://github.com/jimsparkman/RiotControl">Riot Control</a></p>
+</li>
+<li><p><a href="http://kysonic.github.io/riot-mui/">Material UI</a></p>
+</li>
+<li><p><a href="http://cognitom.github.io/riot-bootstrap/">Riot Bootstrap</a></p>
+</li>
+<li><p><a href="https://riotgear.js.org/">RiotGear</a></p>
+</li>
+<li><p><a href="http://windyty.com">WindyTy.com</a></p>
+</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-51">
     <section class="slide-content"><div class="author">
   <h1 class="name">Mike Ward</h1>
     <h3 class="twitter">
