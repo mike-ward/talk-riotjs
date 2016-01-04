@@ -479,8 +479,7 @@ table td {
 </section>
   </div>
   <div class="slide hidden " id="slide-4">
-    <section class="slide-content"><h3 id="how-i-felt">How I Felt</h3>
-<p><img src="singing.jpg" alt="center"></p>
+    <section class="slide-content"><p><img src="feeling.gif" alt="center"></p>
 </section>
   </div>
   <div class="slide hidden  why" id="slide-5">
@@ -677,7 +676,7 @@ execute them.</p>
 </section>
   </div>
   <div class="slide hidden " id="slide-16">
-    <section class="slide-content"><h3 id="compiled-lt-todo-gt-">Compiled &lt;todo&gt;</h3>
+    <section class="slide-content"><h3 id="-lt-todo-gt-compiled">&lt;todo&gt; Compiled</h3>
 <pre><code class="lang-js">riot.tag2(
   <span class="hljs-string">'todo'</span>, 
   <span class="hljs-string">'&lt;h3&gt;{opts.title}&lt;/h3&gt; ...'</span>, 
@@ -890,7 +889,7 @@ injects it into <code>&lt;head&gt;</code></p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
 </section>
   </div>
-  <div class="slide hidden ----------------------------------------------------------------------" id="slide-35">
+  <div class="slide hidden " id="slide-35">
     <section class="slide-content"><h3 id="examples-of-mounting">Examples of Mounting</h3>
 <pre><code class="lang-js"><span class="hljs-comment">// mount all custom tags on the page</span>
 riot.mount(<span class="hljs-string">'*'</span>)
@@ -903,7 +902,30 @@ riot.mount(<span class="hljs-string">'todo, forum, comments'</span>)</code></pre
 </section>
   </div>
   <div class="slide hidden " id="slide-36">
+    <section class="slide-content"><h3 id="riot-observable-el-">riot.observable(el)</h3>
+<p>Adds Observer support for the given object <code>el</code></p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Car</span>(<span class="hljs-params"></span>) </span>{
+
+  <span class="hljs-comment">// Make Car instances observable</span>
+  riot.observable(<span class="hljs-keyword">this</span>)
+
+  <span class="hljs-comment">// listen to 'start' event</span>
+  <span class="hljs-keyword">this</span>.on(<span class="hljs-string">'start'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// engine started</span>
+  })
+
+}
+
+<span class="hljs-comment">// make a new Car instance</span>
+<span class="hljs-keyword">var</span> car = <span class="hljs-keyword">new</span> Car()
+
+<span class="hljs-comment">// trigger 'start' event</span>
+car.trigger(<span class="hljs-string">'start'</span>)</code></pre>
+</section>
+  </div>
+  <div class="slide hidden " id="slide-37">
     <section class="slide-content"><h3 id="life-cycle-events">Life Cycle Events</h3>
+<p>Custom tags are instances of <code>riot.observable</code></p>
 <pre><code class="lang-js"><span class="hljs-keyword">this</span>.on(<span class="hljs-string">'before-mount'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-comment">// before the tag is mounted</span>
 })
@@ -928,8 +950,8 @@ riot.mount(<span class="hljs-string">'todo, forum, comments'</span>)</code></pre
 })</code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-37">
-    <section class="slide-content"><h3 id="life-cycle-events">Life Cycle Events</h3>
+  <div class="slide hidden " id="slide-38">
+    <section class="slide-content"><h3 id="event-example">Event Example</h3>
 <pre><code class="lang-js">&lt;example-tag&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"findMe"</span>&gt;</span>Do I even Exist?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
@@ -950,7 +972,7 @@ riot.mount(<span class="hljs-string">'todo, forum, comments'</span>)</code></pre
 <span class="hljs-tag">&lt;/<span class="hljs-name">example-tag</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-38">
+  <div class="slide hidden " id="slide-39">
     <section class="slide-content"><h3 id="options">Options</h3>
 <pre><code class="lang-js">&lt;script&gt;
 riot.mount(<span class="hljs-string">'todo'</span>, { title: <span class="hljs-string">'My TODO app'</span>, items: [ ... ] })
@@ -967,7 +989,7 @@ riot.mount(<span class="hljs-string">'todo'</span>, { title: <span class="hljs-s
 <span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-39">
+  <div class="slide hidden " id="slide-40">
     <section class="slide-content"><h3 id="expressions">Expressions</h3>
 <p>HTML can be mixed with expressions that are enclosed in curly braces</p>
 <pre><code class="lang-js">{ <span class="hljs-comment">/* my_expression goes here */</span> }</code></pre>
@@ -983,7 +1005,7 @@ riot.mount(<span class="hljs-string">'todo'</span>, { title: <span class="hljs-s
 { <span class="hljs-built_in">Math</span>.round(rating) }</code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-40">
+  <div class="slide hidden " id="slide-41">
     <section class="slide-content"><h3 id="boolean-attributes">Boolean Attributes</h3>
 <p>Boolean attributes (checked, selected etc..) are ignored when the
 expression value is falsy</p>
@@ -993,7 +1015,7 @@ expression value is falsy</p>
 <pre><code class="lang-js">&lt;input type=<span class="hljs-string">"checkbox"</span> { <span class="hljs-literal">true</span> ? <span class="hljs-string">'checked'</span> : <span class="hljs-string">''</span>}&gt;</code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-41">
+  <div class="slide hidden " id="slide-42">
     <section class="slide-content"><h3 id="class-shorthand">Class Shorthand</h3>
 <p>Riot has a special syntax for CSS class names</p>
 <pre><code class="lang-js">&lt;p <span class="hljs-class"><span class="hljs-keyword">class</span></span>={ foo: <span class="hljs-literal">true</span>, bar: <span class="hljs-number">0</span>, baz: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(), zorro: <span class="hljs-string">'a value'</span> }&gt;
@@ -1001,7 +1023,7 @@ expression value is falsy</p>
 <p>Property names with truthy values are appended to class names</p>
 </section>
   </div>
-  <div class="slide hidden " id="slide-42">
+  <div class="slide hidden " id="slide-43">
     <section class="slide-content"><h3 id="transclusion">Transclusion</h3>
 <blockquote>
 <p>The inclusion of part of one hypertext document in another one by
@@ -1021,7 +1043,7 @@ means of reference rather than copying</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-43">
+  <div class="slide hidden " id="slide-44">
     <section class="slide-content"><h3 id="multi-transclusion">Multi-transclusion</h3>
 <p>The <code>&lt;yield&gt;</code> tag also provides a slot mechanism that allows you to
 inject html contents on specific slots in the template</p>
@@ -1037,7 +1059,7 @@ inject html contents on specific slots in the template</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">my-other-post</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-44">
+  <div class="slide hidden " id="slide-45">
     <section class="slide-content"><h3 id="multi-transclusion-usage-">Multi-transclusion (usage)</h3>
 <pre><code class="lang-js">&lt;my-other-post title=<span class="hljs-string">"What a great title"</span>&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">yield</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"summary"</span>&gt;</span>
@@ -1050,7 +1072,7 @@ inject html contents on specific slots in the template</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">my-other-post</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-45">
+  <div class="slide hidden " id="slide-46">
     <section class="slide-content"><h3 id="loops">Loops</h3>
 <pre><code class="lang-js">&lt;todo&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
@@ -1068,7 +1090,7 @@ inject html contents on specific slots in the template</p>
 <p>Element with the <code>each</code> attribute repeated for all items in array</p>
 </section>
   </div>
-  <div class="slide hidden " id="slide-46">
+  <div class="slide hidden " id="slide-47">
     <section class="slide-content"><h3 id="non-object-arrays">Non-object arrays</h3>
 <p>The array elements need not be objects. They can be strings or numbers
 as well. Use the <code>{ name, i in items }</code></p>
@@ -1079,7 +1101,7 @@ as well. Use the <code>{ name, i in items }</code></p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">my-tag</span>&gt;</span></span></code></pre>
 </section>
   </div>
-  <div class="slide hidden " id="slide-47">
+  <div class="slide hidden " id="slide-48">
     <section class="slide-content"><h3 id="object-loops">Object loops</h3>
 <pre><code class="lang-js">&lt;my-tag&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">each</span>=<span class="hljs-string">"{ name, value in obj }"</span>&gt;</span>{ name } = { value }<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -1093,7 +1115,7 @@ as well. Use the <code>{ name, i in items }</code></p>
 <p><em>Object loops are not recommended</em></p>
 </section>
   </div>
-  <div class="slide hidden " id="slide-48">
+  <div class="slide hidden " id="slide-49">
     <section class="slide-content"><h3 id="other-stuff">Other Stuff</h3>
 <ul>
 <li><p>Observable</p>
@@ -1104,7 +1126,7 @@ as well. Use the <code>{ name, i in items }</code></p>
 <p>But first ... <strong>An Example</strong></p>
 </section>
   </div>
-  <div class="slide hidden " id="slide-49">
+  <div class="slide hidden " id="slide-50">
     <section class="slide-content"><h3 id="example">Example</h3>
 <p><a href="https://github.com/mike-ward/talk-riotjs">https://github.com/mike-ward/talk-riotjs</a></p>
 <ul>
@@ -1117,7 +1139,7 @@ as well. Use the <code>{ name, i in items }</code></p>
 </ul>
 </section>
   </div>
-  <div class="slide hidden  online-resources" id="slide-50">
+  <div class="slide hidden  online-resources" id="slide-51">
     <section class="slide-content"><h3 id="resources">Resources</h3>
 <ul>
 <li><p><a href="https://github.com/jimsparkman/RiotControl">Riot Control</a></p>
@@ -1133,7 +1155,7 @@ as well. Use the <code>{ name, i in items }</code></p>
 </ul>
 </section>
   </div>
-  <div class="slide hidden" id="slide-51">
+  <div class="slide hidden" id="slide-52">
     <section class="slide-content"><div class="author">
   <h1 class="name">Mike Ward</h1>
     <h3 class="twitter">

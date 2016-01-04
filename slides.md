@@ -53,9 +53,7 @@ style: style.css
 
 --
 
-### How I Felt
-
-![center](singing.jpg)
+![center](feeling.gif)
 
 -- why
 
@@ -229,7 +227,7 @@ There's also a command line compiler
 
 --
 
-### Compiled &lt;todo&gt;
+### &lt;todo&gt; Compiled
 
 ``` js
 riot.tag2(
@@ -477,7 +475,7 @@ Once a tag is defined you can mount it on the page as follows:
 </body>
 ```
 
-------------------------------------------------------------------------
+--
 
 ### Examples of Mounting
 
@@ -494,7 +492,35 @@ riot.mount('todo, forum, comments')
 
 --
 
+### riot.observable(el)
+
+Adds Observer support for the given object `el`
+
+```js
+function Car() {
+
+  // Make Car instances observable
+  riot.observable(this)
+
+  // listen to 'start' event
+  this.on('start', function() {
+    // engine started
+  })
+
+}
+
+// make a new Car instance
+var car = new Car()
+
+// trigger 'start' event
+car.trigger('start')
+```
+
+--
+
 ### Life Cycle Events
+
+Custom tags are instances of `riot.observable`
 
 ``` js
 this.on('before-mount', function() {
@@ -523,7 +549,7 @@ this.on('all', function(eventName) {
 
 --
 
-### Life Cycle Events
+### Event Example
 
 ``` js
 <example-tag>
