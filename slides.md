@@ -3,6 +3,7 @@ author:
  name: Mike Ward
  twitter: mikeward_aa
  url: http://mike-ward.net
+ email: mike@mike-ward.net
 output: index.html
 style: style.css
 
@@ -134,8 +135,7 @@ Custom tags let you build complex views with HTML
 
 ### Small Learning Curve
 
-Riot has between 10 and 100 times fewer API methods than other UI
-libraries.
+Riot has fewer API methods than other UI libraries.
 
 -   Less to learn. Fewer books and tutorials to view
 
@@ -251,7 +251,7 @@ riot.tag2(
 
 ### Compiler performance
 
-Compilation phase is basically free and takes no time at all
+Compilation phase takes very little time
 
 Compiling the `todo` tag 30 times takes 2 milliseconds on a regular
 laptop.
@@ -496,7 +496,7 @@ riot.mount('todo, forum, comments')
 
 Adds Observer support for the given object `el`
 
-```js
+``` js
 function Car() {
 
   // Make Car instances observable
@@ -721,6 +721,17 @@ For example using the following riot tag `my-other-post`
     <p>Very</p>
   </yield>
 </my-other-post>
+```
+
+```js
+<article>
+  <h1></h1>
+  <h2>My beautiful post is just awesome</h2>
+  </div>
+    <p>And the next paragraph describes just how awesome it is</p>
+    <p>Very</p>
+  </div>
+</article>
 ```
 
 --

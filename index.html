@@ -560,8 +560,7 @@ any pre-processor you want</p>
   </div>
   <div class="slide hidden  learning-curve" id="slide-10">
     <section class="slide-content"><h3 id="small-learning-curve">Small Learning Curve</h3>
-<p>Riot has between 10 and 100 times fewer API methods than other UI
-libraries.</p>
+<p>Riot has fewer API methods than other UI libraries.</p>
 <ul>
 <li><p>Less to learn. Fewer books and tutorials to view</p>
 </li>
@@ -696,7 +695,7 @@ execute them.</p>
   </div>
   <div class="slide hidden " id="slide-17">
     <section class="slide-content"><h3 id="compiler-performance">Compiler performance</h3>
-<p>Compilation phase is basically free and takes no time at all</p>
+<p>Compilation phase takes very little time</p>
 <p>Compiling the <code>todo</code> tag 30 times takes 2 milliseconds on a regular
 laptop.</p>
 <p>1000 different todo-sized tags, the compilation takes around 35ms</p>
@@ -1070,6 +1069,14 @@ inject html contents on specific slots in the template</p>
     <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Very<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">yield</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">my-other-post</span>&gt;</span></span></code></pre>
+<pre><code class="lang-js">&lt;article&gt;
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>My beautiful post is just awesome<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>And the next paragraph describes just how awesome it is<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Very<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span></span></code></pre>
 </section>
   </div>
   <div class="slide hidden " id="slide-46">
@@ -1163,6 +1170,9 @@ as well. Use the <code>{ name, i in items }</code></p>
     </h3>
     <h3 class="url">
       <a href="http://mike-ward.net">http://mike-ward.net</a>
+    </h3>
+    <h3 class="email">
+      <a href="mailto:mike@mike-ward.net">mike@mike-ward.net</a>
     </h3>
 </div>
 </section>
