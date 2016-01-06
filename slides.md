@@ -322,6 +322,32 @@ ReactDOM.render(<Timer />, mountNode);
 
 --
 
+### Riot Component
+
+```js
+<timer>
+
+  <p>Seconds Elapsed: { time }</p>
+
+  <script>
+    this.time = opts.start || 0
+
+    tick() {
+      this.update({ time: ++this.time })
+    }
+
+    var timer = setInterval(this.tick, 1000)
+
+    this.on('unmount', function() {
+      clearInterval(timer)
+    })
+  </script>
+
+</timer>
+```
+
+--
+
 ### But won't this be...
 
 ![center](slow.png)
@@ -348,7 +374,7 @@ ReactDOM.render(<Timer />, mountNode);
 
 -   Data flows in one direction
 
--   Components Rule
+-   Components rule
 
 --
 
@@ -383,7 +409,7 @@ Here are the basic rules:
 
 -   Custom tags can be empty, HTML only or JavaScript only
 
--   All attribute names must be lowercase
+-   Attribute names must be lowercase
 
 -   A shorthand syntax for class names is available:
 
@@ -506,7 +532,6 @@ function Car() {
   this.on('start', function() {
     // engine started
   })
-
 }
 
 // make a new Car instance
@@ -723,9 +748,11 @@ For example using the following riot tag `my-other-post`
 </my-other-post>
 ```
 
+Result:
+
 ```js
 <article>
-  <h1></h1>
+  <h1>What a great title</h1>
   <h2>My beautiful post is just awesome</h2>
   </div>
     <p>And the next paragraph describes just how awesome it is</p>
@@ -797,7 +824,7 @@ as well. Use the `{ name, i in items }`
 
 -   Routing
 
-But first ... **An Example**
+But first ... 
 
 --
 
@@ -825,4 +852,9 @@ But first ... **An Example**
 
 -   [WindyTy.com](http://windyty.com)
 
+--
 
+<div style="text-align: center; margin-top: 10pc">
+<img src="inds_logo.png" style="vertical-align: middle"> 
+<b>Integrated Nonclinical Development Solutions, Inc.</b>
+</div>
