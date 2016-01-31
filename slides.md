@@ -828,15 +828,35 @@ But first ...
 
 --
 
-### Example
+### Let's Look at Some Code
+
+![center](.\wtfm.jpg)
+
+--
+
+### Example 1
 
 <https://github.com/mike-ward/talk-riotjs>
 
--   Routers and observables
+-   Router (Riot Control)
+
+-   Flux (no library)
 
 -   Tooling (Webpack and NPM)
 
 -   My lame attempt at an iTunes browser
+
+--
+
+### Example 2
+
+<https://github.com/mike-ward/electron-riot>
+
+-   Cross platform desktop apps with web technologies
+
+-   <http://electron.atom.io/>
+
+-   Yet another lame attempt at an iTunes browser
 
 -- online-resources
 
